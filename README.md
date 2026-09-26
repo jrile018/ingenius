@@ -201,3 +201,54 @@ It does not promise returns, manufacture security recommendations, reconstruct u
 - A pinned Microsoft SkillOpt surrogate run rejected further edits at 0.9875 → 0.9875; its sealed four-case test scored hard 1.0 and soft 0.9675 with no backend or parse failures.
 
 See [the evaluation report](evaluations/skillopt-2026-09-26/REPORT.md) for the run history, council findings, method limits, architecture comparison, and sandbox candidates. The SkillOpt cases are reviewed authored surrogates, not mined production usage or native skill-discovery measurements.
+
+## Architecture token-use experiment
+
+This experiment compared four ways to package the same six `trade-ngin` knowledge domains across 11 equally weighted request cases. It was used as a controlled architecture test for Ingenius; it was not a benchmark of investment performance or model intelligence.
+
+Token counts use `tiktoken` with `o200k_base` over discovery metadata and the skill/reference files that each case would load. They exclude the user prompt, runtime wrappers, repository reads, model output, latency, and billed API accounting.
+
+### Architecture comparison
+
+| Architecture | Catalog tokens on every request | Mean activated case | Narrow focused mean | Cross-domain mean | Worst activated case | Blind behavior result |
+|---|---:|---:|---:|---:|---:|---:|
+| One monolithic `SKILL.md` | 95 | 3,588 | 3,588 | 3,588 | 3,588 | 11/11 |
+| Routed parent + conditional references | **95** | 1,605 | 1,478 | **2,348** | **2,792** | 10/11 as originally written |
+| Four coarse sibling skills | 310 | 2,053 | Not separately reported | Not separately reported | 4,399 | 11/11 |
+| Six matched-granularity sibling skills | 432 | **1,504** | **1,210** | 2,689 | 3,434 | 11/11 |
+
+The matched sibling design used 6.3% fewer tokens than the routed design in the equally weighted average because most cases were narrow. The routed design still used 55.3% fewer tokens than the monolith and had the lowest catalog cost and cross-domain worst case. Its one behavioral miss was an under-routed live/backtest parity case; the routing rule was corrected to include strategy/statistics and portfolio/risk when those stages can cause the divergence.
+
+### Workload sensitivity
+
+| Modeled request mix | Routed parent | Matched siblings | Lower estimate |
+|---|---:|---:|---|
+| Narrow-heavy | 1,492.5 | **1,391.6** | Matched siblings |
+| Balanced | **1,597.3** | 1,648.3 | Routed parent |
+| Cross-domain-heavy | **1,814.8** | 2,017.9 | Routed parent |
+
+For these cases and weights, the estimated crossover occurs when cross-domain requests exceed about 44.0% of focused-plus-cross requests. That number is experiment-specific, not a general constant.
+
+The boundary cases also favored the routed parent:
+
+- Unrelated request that should activate nothing: 95 tokens for routed references versus 432 for matched siblings.
+- Parent-only live-operation safety question: 1,008 tokens for routed references versus 1,195 for matched siblings.
+- Loading every routed reference at once: 3,821 tokens, which is 233 more than the 3,588-token monolith. Progressive disclosure helps only when most requests load a subset.
+
+### Ingenius package measurements
+
+| Ingenius context component | Estimated tokens |
+|---|---:|
+| Discovery metadata | 99 |
+| Parent `SKILL.md` | 933 |
+| One ordinary domain reference | 548–724 |
+| Discovery + parent + one ordinary domain | **1,580–1,756** |
+| Discovery + every package file | 5,769 |
+
+An ordinary routed Ingenius request therefore loads about 69.6–72.6% less skill context than loading the entire catalog-inclusive package. This supports the current parent-plus-references architecture, but it does not prove that architecture universally optimal. A sibling should be promoted only when real request data shows a distinct user goal, non-overlapping activation, its own inputs and outputs, and mostly narrow traffic.
+
+### Live-agent and Graphify telemetry limits
+
+The live delegation trials verified parallel routing and a staged empirical-to-portfolio handoff, but the collaboration interface did not expose exact worker token or billing usage. Likewise, Graphify token fields remained `0` when host-agent semantic extraction lacked token telemetry. Those zeroes mean **unavailable measurement**, not zero computational cost. The static measurements above are therefore suitable for comparing skill-file context, not for claiming exact runtime savings from subagents.
+
+The decision-relevant evidence is preserved in [ARCHITECTURE_EVIDENCE.md](evaluations/skillopt-2026-09-26/ARCHITECTURE_EVIDENCE.md), while the broader optimization and behavioral results are in [REPORT.md](evaluations/skillopt-2026-09-26/REPORT.md) and the [delegation-routing report](evaluations/delegation-routing-2026-09-26/REPORT.md).
