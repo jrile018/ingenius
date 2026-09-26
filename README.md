@@ -10,6 +10,7 @@ The finished skill is [`skills/ingenius-quant-finance`](skills/ingenius-quant-fi
 ingenius/
 ├── source-material/mit-ocw-research/   recovered research snapshot
 │   └── graphify-out/                   portable knowledge graph and report
+├── research/                            source-selection and expansion roadmaps
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 ├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
@@ -98,6 +99,10 @@ The first parallel run exposed an over-routing bug: the word “PCA” caused th
 The staged trial also confirmed that topical similarity is not enough to create a dependency. A dependency exists only when a downstream decision consumes an upstream result. Graphify helps reveal related concepts in the research corpus, but the runtime graph uses explicit input/output handoffs rather than inferred similarity edges.
 
 The live evidence is deliberately bounded: these were small behavioral trials, not production-frequency measurements. Exact model-token or billing usage was not exposed, and the planned single-module no-spawn control could not start after the collaboration thread limit was reached. It remains a structurally validated case rather than a claimed live pass.
+
+## MIT OCW expansion roadmap
+
+The [CS, mathematics, and quantitative-finance course roadmap](research/mit-ocw-course-roadmap-2026-09-26.md) identifies the strongest official MIT OCW prerequisite spine and specialist branches for expanding Ingenius. It keeps courses as traceable evidence sources and recommends capability-shaped modules instead of one subskill per course.
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
 
