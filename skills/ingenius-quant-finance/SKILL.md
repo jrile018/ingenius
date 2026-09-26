@@ -9,6 +9,8 @@ Use the MIT OCW-derived corpus as a source-grounded reasoning framework. Optimiz
 
 ## Route the Request
 
+When a request explicitly names MIT 6.172, 15.481x, 15.450, or 18.642—or a task combines their distinct course contracts—read [references/course-specialist-routing.md](references/course-specialist-routing.md) first. That catalog routes to the separately installable course skills and defines staged handoffs for multi-course work. Do not load a course specialist merely because the request contains a topic that also appears in its syllabus.
+
 Load the smallest set of modules that owns distinct decisions:
 
 | Observable request | Load |
@@ -28,6 +30,8 @@ Common combinations:
 - Estimated derivative or curve model: empirical research, then stochastic pricing.
 - Prerequisite-aware study plan: course map, then learning/projects.
 - Counterparty valuation plus margin optimization: stochastic pricing, then portfolio/risk.
+- Adaptive-market mechanism or high-level falsifiable test design: 15.481x only. Add 15.450 only when the user requests an execution-ready econometric specification, dependence-valid inference, estimation, or implementation.
+- Validated quantitative method that is actually performance-bound in code: finance specialist first, then 6.172 for measured implementation work.
 
 If no route is clear, ask for the actual problem, supplied data, and desired help level. Do not load every module speculatively.
 

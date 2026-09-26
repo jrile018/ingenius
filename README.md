@@ -10,14 +10,25 @@ The finished skill is [`skills/ingenius-quant-finance`](skills/ingenius-quant-fi
 ingenius/
 ├── source-material/mit-ocw-research/   recovered research snapshot
 │   └── graphify-out/                   portable knowledge graph and report
-├── research/                            source-selection and expansion roadmaps
+├── research/                            source-selection and architecture reports
+│   └── courses/                         four course-specific deep-research briefs
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 ├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
-└── skills/ingenius-quant-finance/      validated installable skill
+├── skills/ingenius-quant-finance/      cross-course parent skill
+├── skills/mit-6172-performance-engineering/
+├── skills/mit-15481x-adaptive-markets/
+├── skills/mit-15450-analytics-of-finance/
+└── skills/mit-18642-quant-finance/      four course-specific skills
+```
+
+Each course package contains one `SKILL.md`, one conditionally loaded course guide, and Codex interface metadata. The course packages are siblings selected through the Ingenius parent catalog; they are not nested `SKILL.md` files.
+
+```text
+skills/<course-skill>/
     ├── SKILL.md                        parent router and shared invariants
     ├── agents/openai.yaml              Codex interface metadata
-    └── references/                     conditional domain modules
+    └── references/course-guide.md      conditional course detail and tests
 ```
 
 ## How the skill works
@@ -107,6 +118,29 @@ The [CS, mathematics, and quantitative-finance course roadmap](research/mit-ocw-
 The roadmap is not a claim that MIT OCW alone teaches how to operate a hedge fund. It explicitly identifies missing operational areas—prime brokerage, fund administration, current regulation, market-data governance, OMS/EMS and exchange connectivity, production microstructure, and compliance—that require current regulator, exchange, broker, and vendor sources. Courses remain traceable evidence sources, while the skill tree is organized around capabilities instead of creating one overlapping subskill per course.
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
+
+## Four course deep dives and skills
+
+Four high-value courses now have separate source-backed research briefs and separately installable skills:
+
+| Course | Deep research | Skill | Owns |
+|---|---|---|---|
+| MIT 6.172 | [Performance Engineering of Software Systems](research/courses/mit-6-172-performance-engineering.md) | [`mit-6172-performance-engineering`](skills/mit-6172-performance-engineering/) | Profiling, benchmarks, bottleneck diagnosis, safe optimization, and before/after verification |
+| MIT 15.481x | [Adaptive Markets](research/courses/mit-15-481x-adaptive-markets.md) | [`mit-15481x-adaptive-markets`](skills/mit-15481x-adaptive-markets/) | Market adaptation, hedge-fund ecology, crowding, liquidity/leverage feedback, crises, and ethics |
+| MIT 15.450 | [Analytics of Finance](research/courses/mit-15-450-analytics-of-finance.md) | [`mit-15450-analytics-of-finance`](skills/mit-15450-analytics-of-finance/) | Advanced workflows integrating econometrics, stochastic pricing, Monte Carlo, volatility, and dynamic choice |
+| MIT 18.642 | [Topics in Mathematics with Applications in Finance](research/courses/mit-18-642-quantitative-finance.md) | [`mit-18642-quant-finance`](skills/mit-18642-quant-finance/) | Course-guided learning and broad mathematics-to-finance translation |
+
+The [course-skill network report](research/course-skill-network-2026-09-26.md) records the research-to-skill briefs, Graphify audit, derived route/dependency map, and ICM-informed cold walk. Graphify found the main overlap between 15.450 and 18.642: both cover empirical information sets and stochastic pricing. The catalog resolves this by goal—18.642 owns broad course learning, while 15.450 owns advanced integrated multi-method work.
+
+The parent routes multi-course work by artifact rather than asking four agents to answer the same question. For example:
+
+```text
+15.481x adaptive hypothesis
+    → 15.450 empirical specification and uncertainty
+        → 6.172 measured implementation optimization
+```
+
+That chain runs only when each downstream stage consumes the upstream result. Independent course/source and implementation audits may run in parallel; ordinary one-course requests stay with one agent.
 
 ## External learning-memory research
 
