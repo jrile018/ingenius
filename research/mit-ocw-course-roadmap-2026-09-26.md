@@ -4,24 +4,29 @@ Research date: 2026-09-26
 
 ## Bottom line
 
-For a rigorous computer-science, mathematics, and quantitative-finance corpus, the best MIT OpenCourseWare set is a small prerequisite spine plus specialist branches. It is not useful to ingest every course with a matching department tag: that would duplicate prerequisites, mix introductory and graduate explanations, and make the skill tree harder to route.
+For the intended outcome—optimizing codebases, understanding hedge-fund strategies and workflows, building fund research/trading infrastructure, and doing quantitative research—the best MIT OpenCourseWare set is not a generic CS or mathematics degree. It is a production-engineering spine joined to an empirical-finance spine.
 
-The recommended minimum spine is:
+The target-specific core is:
 
 1. 6.0001 programming
-2. 18.01SC single-variable calculus
-3. 18.02SC multivariable calculus
-4. 18.06SC linear algebra
-5. 6.042J discrete mathematics
-6. 6.006 algorithms
-7. 18.600 probability (or 6.041SC for the more engineering-oriented treatment)
-8. 18.650 statistics
-9. 15.053 optimization
-10. 6.036 machine learning
-11. 15.401 finance theory
-12. 18.642 mathematics with applications in finance
+2. 6.005 software construction
+3. 6.006 algorithms
+4. 6.033 computer-system engineering
+5. 6.172 performance engineering
+6. 6.830 database systems
+7. 18.06SC linear algebra
+8. 18.600 probability
+9. 18.650 statistics
+10. 15.053 optimization
+11. 15.097 prediction, machine learning, and statistics
+12. 14.384 time-series analysis
+13. 15.401 finance theory
+14. 15.433 investments and hedge-fund/proprietary-trading foundations
+15. 15.450 analytics of finance
+16. 15.481x adaptive markets and hedge-fund behavior
+17. 18.642 integrated quantitative finance and systematic-trading applications
 
-After that spine, choose only the branch needed: empirical research, stochastic pricing, portfolio optimization, or quant systems.
+Calculus and discrete mathematics remain prerequisites when missing, but they are preparation rather than the destination. After the core, add operating systems, distributed systems, security, compiler engineering, advanced econometrics, or financial-system design only for the role being built.
 
 ## How courses were selected
 
@@ -55,11 +60,14 @@ Material ratings are practical corpus ratings, not judgments of academic quality
 | Distributed systems | [6.824 Distributed Computer Systems Engineering (Spring 2006)](https://ocw.mit.edu/courses/6-824-distributed-computer-systems-engineering-spring-2006/) | Replicated services, distributed storage, network systems, security, and fault tolerance | C |
 | Performance | [6.172 Performance Engineering of Software Systems (Fall 2018)](https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/) | Profiling, caching, parallelism, measurement, and low-latency implementation | A |
 | Data systems | [6.830 Database Systems (Fall 2010)](https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/) | Data models, query processing, transactions, recovery, and research-data infrastructure | B |
+| Operating systems | [6.828 Operating System Engineering (Fall 2012)](https://ocw.mit.edu/courses/6-828-operating-system-engineering-fall-2012/) | Virtual memory, threads, kernels, IPC, coordination, and software/hardware interactions | B |
+| Systems security | [6.858 Computer Systems Security (Fall 2014)](https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/) | Threat models, OS and network security, information flow, secure implementation, and adversarial review | A |
+| Compiler specialization | [6.035 Computer Language Engineering (Spring 2010)](https://ocw.mit.edu/courses/6-035-computer-language-engineering-spring-2010/) | Compilers, program analysis, optimization, and understanding generated machine behavior | B |
 | Optional computation | [18.S191 Introduction to Computational Thinking (Fall 2022)](https://ocw.mit.edu/courses/18-s191-introduction-to-computational-thinking-fall-2022/) | Julia, numerical experiments, and integrated mathematical computation | A |
 
 ### CS selection result
 
-For research-oriented quantitative work, 6.0001, 6.042J, 6.006, and 6.036 are the essential CS chain. Add 6.005 for reproducible research software. Add 6.033, 6.824, 6.172, and 6.830 only for a quant-developer or production-infrastructure branch; they should not be loaded for an ordinary finance derivation or statistics question.
+For the revised goal, 6.005, 6.006, 6.033, 6.172, and 6.830 are no longer peripheral: together they teach how to make research code correct, scalable, measurable, and operable. Add 6.824 for distributed services, 6.828 for low-level latency and resource behavior, 6.858 for security-sensitive fund infrastructure, and 6.035 only when compiler or low-level optimization knowledge will actually be used.
 
 ## Mathematics
 
@@ -72,7 +80,10 @@ For research-oriented quantitative work, 6.0001, 6.042J, 6.006, and 6.036 are th
 | Core probability | [18.600 Probability and Random Variables (Fall 2019)](https://ocw.mit.edu/courses/18-600-probability-and-random-variables-fall-2019/) | Probability, random variables, limit results, martingales, risk-neutral probability, and a Black–Scholes bridge | A |
 | Alternative probability | [6.041SC Probabilistic Systems Analysis and Applied Probability (Fall 2013)](https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/) | A more engineering-oriented, exceptionally complete probability course | A |
 | Core statistics | [18.650 Statistics for Applications (Fall 2016)](https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/) | Estimation, hypothesis testing, regression, Bayesian methods, PCA, and generalized linear models | A |
+| Applied statistics | [15.075J Statistical Thinking and Data Analysis (Fall 2011)](https://ocw.mit.edu/courses/15-075j-statistical-thinking-and-data-analysis-fall-2011/) | Sampling, inference, regression, nonparametrics, and applied programming exercises | B |
 | Applied linear algebra | [18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning (Spring 2018)](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/) | SVD, low-rank methods, optimization, and matrix-based data analysis | A |
+| Predictive modeling | [15.097 Prediction: Machine Learning and Statistics (Spring 2012)](https://ocw.mit.edu/courses/15-097-prediction-machine-learning-and-statistics-spring-2012/) | Generalization, statistical learning, kernels, Bayesian analysis, and project-based prediction | B |
+| Advanced empirical methods | [14.387 Applied Econometrics: Mostly Harmless Big Data (Fall 2014)](https://ocw.mit.edu/courses/14-387-applied-econometrics-mostly-harmless-big-data-fall-2014/) | Regression design, matching, IV, differences, high-dimensional covariates, and causal-research discipline | B |
 | Numerical methods | [18.330 Introduction to Numerical Analysis (Spring 2012)](https://ocw.mit.edu/courses/18-330-introduction-to-numerical-analysis-spring-2012/) | Root finding, approximation, integration, differential equations, and numerical linear algebra | B |
 | Intro optimization | [15.053 Optimization Methods in Management Science (Spring 2013)](https://ocw.mit.edu/courses/15-053-optimization-methods-in-management-science-spring-2013/) | Accessible linear, integer, network, and decision optimization | B |
 | Advanced optimization | [15.093J Optimization Methods (Fall 2009)](https://ocw.mit.edu/courses/15-093j-optimization-methods-fall-2009/) | Graduate linear, nonlinear, discrete, network, dynamic, and control optimization | B |
@@ -97,6 +108,9 @@ Do not require real analysis, measure theory, or graduate probability for every 
 | Complementary predecessor | [18.S096 Topics in Mathematics with Applications in Finance (Fall 2013)](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/) | Additional factor, time-series, portfolio, rates, commodity, credit, and case-study material | A |
 | Advanced integrated quant | [15.450 Analytics of Finance (Fall 2010)](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/) | Financial econometrics, dynamic optimization, Monte Carlo, Itô calculus, derivatives, and portfolio choice | B |
 | Investments branch | [15.433 Investments (Spring 2003)](https://ocw.mit.edu/courses/15-433-investments-spring-2003/) | Portfolio theory, empirical returns, fixed income, derivatives, credit, risk management, and active management | C |
+| Hedge-fund and market behavior | [15.481x Adaptive Markets: Financial Market Dynamics and Human Behavior (Fall 2022)](https://ocw.mit.edu/courses/15-481x-adaptive-markets-financial-market-dynamics-and-human-behavior-fall-2022/) | Market efficiency limits, changing regimes, behavioral foundations, hedge-fund ecology, crises, and ethics | A |
+| Trading and financial technology | [15.S08 FinTech: Shaping the Financial World (Spring 2020)](https://ocw.mit.edu/courses/15-s08-fintech-shaping-the-financial-world-spring-2020/) | AI in finance, APIs, payments, trading and capital markets, and financial-platform context | A |
+| Financial-system design | [14.129 Blockchain and the Design of Financial Systems (Spring 2025)](https://ocw.mit.edu/courses/14-129-blockchain-and-the-design-of-financial-systems-spring-2025/) | Financial infrastructure, distributed ledgers, market mechanisms, regulation, and economics/CS system design | A |
 | Empirical research branch | [14.384 Time Series Analysis (Fall 2013)](https://ocw.mit.edu/courses/14-384-time-series-analysis-fall-2013/) | Graduate time-series methods and model-diagnostic discipline | B |
 
 ### Quant-finance selection result
@@ -105,28 +119,29 @@ Use 18.642 as the primary integrated course and 18.S096 as a complementary histo
 
 15.401 supplies the finance vocabulary and no-arbitrage/valuation foundation that mathematics-only courses assume. 15.450 is the strongest advanced bridge across econometrics, stochastic calculus, optimization, simulation, and implementation, but it assumes prior finance, programming, calculus, probability, and statistics.
 
-15.433 is valuable for broad instrument and investment coverage, but its 2003 market examples are historical. Use its mathematical and conceptual content; verify any market convention, regulation, instrument practice, or empirical claim against current sources before treating it as current.
+15.433 is valuable because its public materials explicitly cover active portfolio management, hedge funds and proprietary trading, risk management, commodities, fixed income, credit, and derivatives. Its 2003 examples are historical, so use its stable concepts while verifying market conventions and operations against current sources.
+
+15.481x is the strongest public MIT course in this set for understanding why hedge-fund strategies emerge, adapt, crowd, and sometimes fail. It is not an operations manual. 15.S08 and 14.129 add financial-platform and market-infrastructure context, while 6.033/6.830/6.824/6.858 supply the engineering needed to build dependable systems.
 
 ## Recommended learning and skill-building routes
 
-### Fastest coherent foundation
+### Targeted foundation
 
 ```text
-6.0001 ───────────────┐
-18.01SC → 18.02SC ────┼→ 18.06SC → 18.600/6.041SC → 18.650
-6.042J → 6.006 ───────┘                    ↓
-                                      15.053 → 6.036
-                                            ↓
-                                    15.401 → 18.642
+math prerequisites → 18.06SC → 18.600 → 18.650 → 15.053
+                                               ├→ 15.097 → 14.384
+6.0001 → 6.006 → 6.005 → 6.033 → 6.830       │
+                                               └→ 15.401 → 15.433/15.481x → 18.642/15.450
 ```
 
 ### Empirical quant branch
 
 ```text
-foundation → 18.650 → 18.065 → 6.036 → 14.384 → 15.450
+foundation → 18.650 → 18.065 → 15.097 → 14.384 → 15.450
+                                     └→ 14.387 for causal/empirical design
 ```
 
-Use this for backtesting, regression, factor models, PCA, volatility, time series, validation, and ML. Add 6.005 for stronger research software.
+Use this for backtesting, regression, factor models, PCA, volatility, time series, validation, and ML. Research code should simultaneously follow the 6.005/6.830 reproducibility and data-system path.
 
 ### Stochastic pricing branch
 
@@ -148,10 +163,48 @@ Use 15.433 for breadth across asset classes and investment practice; use 15.450 
 ### Quant developer branch
 
 ```text
-6.0001 → 6.006 → 6.005 → 6.033 → 6.824/6.830 → 6.172
+6.0001 → 6.006 → 6.005 → 6.033 → 6.830 → 6.172
+                                  ├→ 6.824 distributed services
+                                  ├→ 6.828 operating systems
+                                  ├→ 6.858 systems security
+                                  └→ 6.035 compiler specialization
 ```
 
 This route is about building reliable and performant systems. It should stay separate from the mathematical-pricing path unless a task genuinely combines both.
+
+### Hedge-fund research and trading branch
+
+```text
+15.401 → 15.433 → 15.481x
+   ├→ 18.642 → systematic strategies, portfolios, risk, and trading applications
+   ├→ 15.450 → econometrics, optimization, simulation, and proprietary trading
+   └→ 15.S08/14.129 → trading platforms and financial-system context
+```
+
+This branch teaches strategy families, instruments, portfolio construction, empirical evaluation, and changing market behavior. The publicly listed 18.642 systematic-trading guest lecture is unavailable to OCW learners, so its title cannot be treated as a complete algorithmic-trading module.
+
+### Fund research-platform branch
+
+```text
+6.005 → 6.033 → 6.830 → 6.172
+                    ├→ 6.824 for distributed jobs and services
+                    ├→ 6.858 for secrets, authorization, and adversarial security
+                    └→ 6.828/6.035 for latency-sensitive specialization
+```
+
+The project target should be a reproducible pipeline: dated data ingestion, point-in-time feature generation, experiment tracking, time-ordered evaluation, portfolio/risk constraints, paper-trading simulation, monitoring, and deterministic replay.
+
+## What MIT OCW does not fully cover
+
+The selected courses are strong for theory, research, and systems foundations, but they do not form a complete handbook for launching or operating a hedge fund. Important gaps include:
+
+- prime brokerage, custody, fund administration, NAV/accounting, audit, tax, and investor reporting;
+- current adviser, commodity, derivatives, short-sale, market-data, and exchange regulation;
+- production OMS/EMS design, exchange protocols, venue routing, transaction-cost analysis, and live market microstructure;
+- corporate data licensing, entitlements, symbol/security-master maintenance, and point-in-time vendor corrections;
+- operational risk, disaster recovery, model governance, surveillance, compliance, and change-management controls.
+
+Those topics require fresh regulator, exchange, broker, vendor, and practitioner sources. Dated OCW slides must not be treated as current legal or operational authority.
 
 ## Implications for the Ingenius skill tree
 

@@ -102,9 +102,26 @@ The live evidence is deliberately bounded: these were small behavioral trials, n
 
 ## MIT OCW expansion roadmap
 
-The [CS, mathematics, and quantitative-finance course roadmap](research/mit-ocw-course-roadmap-2026-09-26.md) identifies the strongest official MIT OCW prerequisite spine and specialist branches for expanding Ingenius. It keeps courses as traceable evidence sources and recommends capability-shaped modules instead of one subskill per course.
+The [CS, mathematics, and quantitative-finance course roadmap](research/mit-ocw-course-roadmap-2026-09-26.md) is optimized for four outcomes: faster and more reliable codebases, empirical quant research, trading and portfolio development, and production systems for investment firms. It combines software construction, algorithms, systems, databases, and performance engineering with statistics, econometrics, optimization, investments, adaptive markets, and integrated quantitative finance.
+
+The roadmap is not a claim that MIT OCW alone teaches how to operate a hedge fund. It explicitly identifies missing operational areas—prime brokerage, fund administration, current regulation, market-data governance, OMS/EMS and exchange connectivity, production microstructure, and compliance—that require current regulator, exchange, broker, and vendor sources. Courses remain traceable evidence sources, while the skill tree is organized around capabilities instead of creating one overlapping subskill per course.
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
+
+## External learning-memory research
+
+The [external-memory research report](research/agent-learnings-external-memory-2026-09-26.md) evaluates the proposal to keep an `AGENT_LEARNINGS.md` that records mistakes and is read before future work.
+
+The conclusion is **useful with controls, unsafe as a raw diary**:
+
+- A small, versioned file of externally verified, reusable lessons is a sensible pilot.
+- Unverified observations belong in quarantine, not in active instructions.
+- Every active lesson needs a scope, evidence, exceptions, a regression test, and a review or expiry date.
+- Duplicate, contradicted, and stale lessons must be merged, superseded, or removed.
+- Once the collection grows, the agent should load a short index and retrieve only relevant records rather than read the entire history.
+- Markdown plus Git is sufficient at the current scale. Hindsight scored 6/20 on the adoption rubric, so the report recommends revisiting a memory service only when multi-agent, multi-user, temporal, provenance, or retrieval pressure materially outgrows files.
+
+The report distinguishes external memory from retraining, reviews controlled academic evidence and production patterns, specifies security boundaries, and defines a four-arm experiment: no memory, raw append-only Markdown, curated Markdown, and curated retrieval. The experiment measures repeated errors, transfer, false-memory harm, staleness, token cost, and latency.
 
 ## Architecture method
 
