@@ -1,6 +1,6 @@
 ---
 name: ingenius-quant-finance
-description: Analyze, verify, and teach quantitative-finance problems using a curated MIT OCW 18.S096 (2013) and 18.642 (2024) research corpus. Use for regression, time series, volatility, PCA, portfolio and risk analysis, stochastic processes, derivatives, rates, credit, or source-grounded study and project planning. Do not use for live investment recommendations, unsupported current-market claims, or unrelated corporate finance.
+description: Analyze, verify, and teach quantitative finance with a curated MIT OCW 18.S096 (2013) and 18.642 (2024) corpus. Use for financial applications of empirical methods, portfolio/risk, stochastic pricing, derivatives, rates, or credit, and for explicit questions about the corpus. Exclude generic statistics or mathematics, unrelated corporate finance, live security recommendations, unsupported current-market claims, trade execution, and production-state mutation.
 ---
 
 # Ingenius Quant Finance
@@ -22,7 +22,7 @@ Load the smallest set of modules that owns distinct decisions:
 
 Common combinations:
 
-- PCA portfolio or backtest: empirical research, then portfolio/risk.
+- Financial PCA or backtest outputs feeding allocation, exposure, or risk: empirical research, then portfolio/risk; otherwise empirical only.
 - Estimated derivative or curve model: empirical research, then stochastic pricing.
 - Prerequisite-aware study plan: course map, then learning/projects.
 - Counterparty valuation plus margin optimization: stochastic pricing, then portfolio/risk.
@@ -52,7 +52,7 @@ If no route is clear, ask for the actual problem, supplied data, and desired hel
 
 ## Boundary and Delegation
 
-This is an educational and analytical skill, not an investment recommender. Do not manufacture a security recommendation, promised return, or unsupported present-day market claim from coursework.
+This is an educational and analytical skill, not an investment recommender. Do not manufacture a security recommendation, promised return, or unsupported present-day market claim from coursework. Analysis never authorizes a trade, order, or production-state mutation; live execution requires separate invocation and explicit permission.
 
 Keep one agent for ordinary analysis and tutoring. Delegate only independent, bounded work such as a solver/checker pair, separate source audits, or independent empirical and derivation workstreams. Require an explicit synthesis rule and deterministic or source-based checks; agreement among agents is not proof. Never create one subagent merely to read each module.
 

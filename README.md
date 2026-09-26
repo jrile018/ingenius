@@ -11,6 +11,7 @@ ingenius/
 ├── source-material/mit-ocw-research/   recovered research snapshot
 │   └── graphify-out/                   portable knowledge graph and report
 ├── research-baseline/                  earlier test skill for comparison
+├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 └── skills/ingenius-quant-finance/      validated installable skill
     ├── SKILL.md                        parent router and shared invariants
     ├── agents/openai.yaml              Codex interface metadata
@@ -30,6 +31,8 @@ The package has one discoverable parent `SKILL.md`. After activation, the parent
 For example, a PCA portfolio backtest routes first through empirical validation and then through portfolio/risk analysis. A question about why physical drift disappears from an option-pricing PDE loads only stochastic pricing.
 
 Modules are references, not nested skills or permanent agents. Subagents are optional runtime workers reserved for genuinely independent workstreams, such as a solver/checker pair.
+
+The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
 
 ## Architecture method
 
@@ -70,4 +73,7 @@ It does not promise returns, manufacture security recommendations, reconstruct u
 - The package contains exactly one `SKILL.md`.
 - All parent-to-reference links resolve.
 - Independent architecture, behavioral, and packaging reviews pass.
-- Ten held-out routing and boundary cases pass at specification level.
+- Reviewed activation, routing, boundary, and native forward-test cases are tracked with their limitations.
+- A pinned Microsoft SkillOpt surrogate run rejected further edits at 0.9875 → 0.9875; its sealed four-case test scored hard 1.0 and soft 0.9675 with no backend or parse failures.
+
+See [the evaluation report](evaluations/skillopt-2026-09-26/REPORT.md) for the run history, council findings, method limits, architecture comparison, and sandbox candidates. The SkillOpt cases are reviewed authored surrogates, not mined production usage or native skill-discovery measurements.

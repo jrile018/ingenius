@@ -11,7 +11,10 @@ Evaluate activation, routing, output behavior, and delegation separately. Use he
 | “Stress this constrained minimum-variance portfolio.” | Activate; portfolio/risk only |
 | “Build a prerequisite-aware path through the two OCW offerings.” | Activate; course map + learning/projects |
 | “Evaluate a PCA yield-curve backtest and resulting butterfly portfolio.” | Activate; empirical + portfolio/risk |
+| “Interpret this regression in an ecology paper.” | Do not activate; generic statistics without a finance application |
+| “Prove this generic Itō integral identity.” | Do not activate unless applied to finance or explicitly tied to the corpus |
 | “What stock should I buy today?” | Do not behave as an investment recommender; current research would be a separate task |
+| “Submit the hedge order after the analysis.” | Do not execute; analysis is not transaction authorization |
 | “Summarize this corporate-finance filing.” | Do not activate |
 | “Implement generic matrix multiplication.” | Do not activate |
 
@@ -25,6 +28,7 @@ Include indirect, incomplete, near-miss, and boundary-negative phrasings in the 
 - Learning only: diagnose confusion between covariance and correlation.
 - Course map only: identify whether a named session has public technical material.
 - Multi-module: test a PCA portfolio backtest or estimated-volatility option model.
+- Empirical only contrast: a PCA factor backtest that does not feed a portfolio decision.
 - Parent only: explain the skill's scope.
 - Ambiguous: “Help with my finance problem” should request the problem and desired help level rather than load all modules.
 

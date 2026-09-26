@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-26",
+  "status": "candidate_rejected",
+  "interpretation": "The frozen revised parent remained the best observed version; SkillOpt proposed no accepted edit and nothing was adopted.",
+  "accepted": false,
+  "adopted": false,
+  "gate_action": "reject",
+  "gate_no_regression": true,
+  "validation": {
+    "baseline": 0.9875,
+    "candidate": 0.9875,
+    "task_deltas": {
+      "val-estimated-volatility-option": 0.975,
+      "val-generic-stochastic-calculus-negative": 1.0,
+      "val-garch-empirical-only": 1.0,
+      "val-recommendation-and-execution": 0.975
+    }
+  },
+  "sealed_test": {
+    "n_tasks": 4,
+    "hard": 1.0,
+    "soft": 0.9675
+  },
+  "run_health": {
+    "n_tasks": 12,
+    "n_sessions": 0,
+    "n_result_events": 16,
+    "non_finite_scores": 0,
+    "empty_responses": 0,
+    "model_calls": 32,
+    "cache_hits": 8,
+    "cache_misses": 24,
+    "call_error": "",
+    "judge_parse_failures": 0,
+    "holdout_leaked": false,
+    "tokens_used": 23994,
+    "concurrent_mutation_detected": false
+  },
+  "hashes": {
+    "baseline_skill_sha256": "ec3fcae8b97a9d3d3b3a16de2a3690d0182d7cebd754aeaf687af6e15013410f",
+    "live_skill_sha256_after_run": "ec3fcae8b97a9d3d3b3a16de2a3690d0182d7cebd754aeaf687af6e15013410f",
+    "tasks_sha256": "fb2a51308e24a82913ba20f0f9681ec236c860e25d924f9a98b9710aeb7b9657",
+    "candidate_skill_sha256": ""
+  },
+  "toolchain": {
+    "microsoft_skillopt_git_sha": "79124b37e9a6371e13b753f8bcd7adb1e493ade1",
+    "codex_path": "/usr/lib/chatgpt/resources/codex",
+    "codex_version": "codex-cli 0.151.0-alpha.7.2",
+    "model": "gpt-5.6-sol",
+    "gate_metric": "mixed",
+    "gate_mixed_weight": 0.5,
+    "edit_budget": 3,
+    "dream_rollouts": 1,
+    "dream_factor": 0,
+    "recall_k": 0,
+    "evolve_memory": false,
+    "auto_adopt": false,
+    "seed": 42
+  },
+  "provenance": {
+    "tasks": "Reviewed authored surrogates; not mined production usage.",
+    "origin_field": "SkillOpt v1 uses real here to mean non-dream and split-eligible, not usage-mined.",
+    "native_activation_test": false,
+    "actual_reference_read_test": false
+  },
+  "local_raw_evidence": ".skillopt-sleep/staging/20260926-164053",
+  "raw_evidence_committed": false,
+  "raw_evidence_policy": "Raw prompts and model transcripts remain local and ignored; this curated result, reviewed task set, runner, hashes, and decisions are committed."
+}

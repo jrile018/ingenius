@@ -1,4 +1,7 @@
 .DS_Store
+.skillopt-sleep/
+__pycache__/
+*.pyc
 **/graphify-out/.graphify_*
 **/graphify-out/.vocab.txt
 **/graphify-out/cache/
