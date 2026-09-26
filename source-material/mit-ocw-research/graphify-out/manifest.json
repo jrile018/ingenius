@@ -1,0 +1,32 @@
+{
+  "README.md": {
+    "mtime": 1790392892.980945,
+    "seen": 1790393404.1228302,
+    "ast_hash": "5cf45541693eed7da1817b978bbf15e6",
+    "semantic_hash": "5cf45541693eed7da1817b978bbf15e6"
+  },
+  "assignments-and-case-studies.md": {
+    "mtime": 1790392892.980945,
+    "seen": 1790393404.1228313,
+    "ast_hash": "819eca0a11b9da43f2545299d495cc9d",
+    "semantic_hash": "819eca0a11b9da43f2545299d495cc9d"
+  },
+  "research-2013-lectures-01-13.md": {
+    "mtime": 1790392892.980945,
+    "seen": 1790393404.1228325,
+    "ast_hash": "65bbf903e598ccebad004d4c5cf63a53",
+    "semantic_hash": "65bbf903e598ccebad004d4c5cf63a53"
+  },
+  "research-2013-lectures-14-26.md": {
+    "mtime": 1790392892.980945,
+    "seen": 1790393404.1228335,
+    "ast_hash": "7f0264b36f63adb92bb0d2179eeecc57",
+    "semantic_hash": "7f0264b36f63adb92bb0d2179eeecc57"
+  },
+  "research-2024-update.md": {
+    "mtime": 1790392892.9819453,
+    "seen": 1790393404.122834,
+    "ast_hash": "29459e887085896d765a3c9a8e7569bd",
+    "semantic_hash": "29459e887085896d765a3c9a8e7569bd"
+  }
+}

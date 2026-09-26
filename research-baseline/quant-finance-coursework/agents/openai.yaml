@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quant Finance Coursework"
+  short_description: "Source-grounded mathematical-finance study and analysis"
+  default_prompt: "Use $quant-finance-coursework to analyze this mathematical-finance question, state assumptions, and verify the result."
