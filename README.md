@@ -183,6 +183,14 @@ Example invocation:
 Use $low-latency-quant-systems to reduce p99 feed-to-book latency without changing replayed book state.
 ```
 
+## Applied Trade Ngin review
+
+The seven-skill [Trade Ngin synopsis](research/trade-ngin-multi-skill-synopsis-2026-09-26.md) applies Graphify, ICM Architect, the low-latency systems parent, the Ingenius finance parent, and the MIT 15.450, 15.481x, and 18.642 course skills to `AlgoGators/trade-ngin` at commit `08b15c0`.
+
+Its plain-language result is that Trade Ngin is a strong daily research, backtest, and paper-accounting engine, but not yet a broker-connected live or low-latency execution stack. The immediate priorities are the repeatedly failing live watchdog, explicit fail-open/fail-closed behavior, separate gating and reporting risk measures, covariance validation, a shared daily-cycle artifact pipeline, reproducible research-promotion gates, and end-to-end data-path measurement. Existing evidence shows database work in seconds while stored mathematical kernels run in microseconds or less, so materialized adjustment factors and pipeline observability should precede CPU instruction tuning.
+
+The review records exact source links, the code-graph result, current CI/watchdog evidence, local verification limits, and a staged implementation plan. It did not modify the Trade Ngin repository.
+
 ## External learning-memory research
 
 The [external-memory research report](research/agent-learnings-external-memory-2026-09-26.md) evaluates the proposal to keep an `AGENT_LEARNINGS.md` that records mistakes and is read before future work.
