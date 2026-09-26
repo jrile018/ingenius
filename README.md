@@ -33,6 +33,36 @@ For example, a PCA portfolio backtest routes first through empirical validation 
 
 Modules are references, not nested skills or permanent agents. Subagents are optional runtime workers reserved for genuinely independent workstreams, such as a solver/checker pair.
 
+## Why this architecture was chosen
+
+The original question was whether a deeply researched course should become one large skill, many subskills, or a parent skill that routes temporary specialist agents. We compared those designs and selected the last one, with an important constraint: the subskills are conditional reference modules, while subagents are optional runtime workers.
+
+| Design considered | Result | Reason |
+|---|---|---|
+| One large `SKILL.md` | Rejected | Every request would load unrelated empirical, portfolio, pricing, provenance, and tutoring instructions. |
+| Several independently discoverable finance skills | Rejected for this corpus | Their activation boundaries overlap, so similar questions could select inconsistent skills or duplicate shared rules. |
+| One permanent agent per topic | Rejected | It adds agent context, coordination, and synthesis cost even when the question needs only one coherent argument. |
+| One parent plus conditional reference modules | Selected | Activation and shared invariants have one owner, while each request loads only the relevant domain guidance. |
+| Optional subagents over the selected modules | Selected conditionally | They help when work products are genuinely independent or when a verified upstream artifact must be handed to a downstream specialist. |
+
+The resulting distinction is:
+
+- A **parent skill** decides whether Ingenius applies, selects modules, controls dependencies, and owns the final answer.
+- A **subskill module** is stored domain guidance in `references/`; it is not independently activated.
+- A **subagent** is a temporary worker created only for a bounded work product and assigned an exact module contract.
+
+### Earlier architecture evaluation
+
+The earlier evaluation supported the selected design:
+
+- A pinned Microsoft SkillOpt surrogate scored `0.9875`; a proposed rewrite also scored `0.9875`, so the optimizer correctly rejected unnecessary change.
+- The sealed four-case evaluation scored hard `1.0` and soft `0.9675`, with no backend or parse failures.
+- Independent architecture, behavioral, and packaging reviewers favored one discoverable parent with progressive disclosure and warned against overlapping activation, indiscriminate delegation, and treating agent agreement as proof.
+- The parent and module layout reduced the files that an ordinary request needs to read compared with a monolithic skill. This is a structural context comparison, not a claim about exact billed model tokens.
+- Subagents were judged worthwhile only when error isolation, parallel wall-clock work, or a real dependency handoff justifies their extra context and synthesis cost.
+
+The conclusion was therefore not “more agents are always better.” It was: use one agent by default, use modules to keep context focused, and add agents only when the task graph provides a concrete reason.
+
 ## How parent-to-subagent routing works
 
 The main agent activates the parent once, then the parent performs both module routing and worker routing:
@@ -56,7 +86,7 @@ parent SKILL.md
 
 For example, a volatility forecast used in option pricing routes first to an empirical worker. Only after that worker returns a validated forecast and information set does a pricing worker use it. By contrast, an unrelated course-source audit and derivative derivation can run at the same time. The full worker contract is in [`delegation-routing.md`](skills/ingenius-quant-finance/references/delegation-routing.md).
 
-### Experiment result
+### Live routing experiment result
 
 The live experiment passed both core routing behaviors:
 
@@ -64,6 +94,10 @@ The live experiment passed both core routing behaviors:
 - **Staged:** an empirical worker returned `CORRECTED_PCA_SPEC`; only then was the portfolio worker created and given that exact artifact.
 
 The first parallel run exposed an over-routing bug: the word “PCA” caused the coverage worker to receive the empirical module too. The parent was changed to route by the decision being made, not by keywords, and a fresh run passed. The full evidence, including limitations and the unrun single-agent control, is in the [delegation-routing experiment report](evaluations/delegation-routing-2026-09-26/REPORT.md).
+
+The staged trial also confirmed that topical similarity is not enough to create a dependency. A dependency exists only when a downstream decision consumes an upstream result. Graphify helps reveal related concepts in the research corpus, but the runtime graph uses explicit input/output handoffs rather than inferred similarity edges.
+
+The live evidence is deliberately bounded: these were small behavioral trials, not production-frequency measurements. Exact model-token or billing usage was not exposed, and the planned single-module no-spawn control could not start after the collaboration thread limit was reached. It remains a structurally validated case rather than a claimed live pass.
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
 
