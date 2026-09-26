@@ -1,6 +1,6 @@
 # 6.172 course-grounded guide
 
-Read this reference for technical routing, quantitative-system applications, tutoring, provenance, and skill evaluation.
+Read this reference for technical routing, explicit MIT 6.172 study, tutoring, provenance, and skill evaluation. Trading-system performance routes to `low-latency-quant-systems` unless the user explicitly requests both lenses.
 
 ## Cross-layer diagnosis
 
@@ -30,9 +30,9 @@ For every accepted change, preserve:
 - effect size and uncertainty;
 - introduced complexity and rollback trigger.
 
-## Quantitative-system checks
+## Quantitative-system checks for an explicit 6.172 lens
 
-When optimizing a backtester, simulator, optimizer, risk engine, or market-data component, also verify:
+When the user explicitly applies the 6.172 lens to a backtester, simulator, optimizer, risk engine, or market-data component, pair it with the owning trading-system contract and also verify:
 
 - timestamp and event-order preservation;
 - point-in-time data and corporate-action semantics;
@@ -60,7 +60,9 @@ Some public assignments lack code or depend on historical Cilk/AWS/Git environme
 
 | Request | Expected behavior |
 |---|---|
-| “Profile this backtester and improve its hot path.” | Activate; establish correctness, workload, baseline, profile, and verified change |
+| “Profile this JSON parser and improve its hot path.” | Activate; establish correctness, workload, baseline, profile, and verified change |
+| “Use MIT 6.172 to explain cache blocking.” | Activate for explicit course-grounded study |
+| “Reduce p99 feed-to-book latency.” | Route to `low-latency-quant-systems`; do not activate this skill unless the user also requests the 6.172 lens |
 | “Design a benchmark before parallelizing this simulation.” | Activate; define representative inputs, metrics, noise controls, and correctness oracle |
 | “The profiler says allocations dominate; vectorize it.” | Activate but challenge the mechanism mismatch |
 | “Rename these functions.” | Do not activate |
@@ -73,4 +75,3 @@ Output tests:
 3. Disclose a flat or noisy result.
 4. Preserve finance-specific temporal and numerical invariants.
 5. Avoid inventing unavailable course assets.
-

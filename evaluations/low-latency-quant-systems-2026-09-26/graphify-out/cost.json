@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "date": "2026-09-26T23:28:13.767585+00:00",
+      "input_tokens": 6842,
+      "output_tokens": 14530,
+      "files": 32,
+      "telemetry_note": "One of two host-agent chunks reported zero token fields; totals are partial, not total cost."
+    }
+  ],
+  "total_input_tokens": 6842,
+  "total_output_tokens": 14530
+}

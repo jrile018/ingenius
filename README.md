@@ -1,8 +1,8 @@
 # Ingenius Quant Finance
 
-`ingenius` turns a researched MIT OpenCourseWare corpus into a source-grounded Codex skill for quantitative-finance analysis, verification, tutoring, and study planning.
+`ingenius` turns researched quantitative-finance and performance-engineering sources into source-grounded, testable Codex skills.
 
-The finished skill is [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/). It draws on public material from MIT OCW 18.S096 (Fall 2013) and its updated successor, 18.642 (Fall 2024). It is an independent research and learning tool, not an MIT product or an investment-recommendation system.
+The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW 18.S096 and 18.642 material. The newer [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) skill combines public courses from multiple institutions with primary processor, compiler, Linux, DPDK, exchange-protocol, and market-microstructure sources. These are independent engineering and learning tools, not institutional products or investment-recommendation systems.
 
 ## Repository layout
 
@@ -12,10 +12,13 @@ ingenius/
 │   └── graphify-out/                   portable knowledge graph and report
 ├── research/                            source-selection and architecture reports
 │   └── courses/                         four course-specific deep-research briefs
+│   └── low-latency-quant-systems-2026-09-26/  20 courses + 11 primary references
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 ├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
+├── evaluations/low-latency-quant-systems-2026-09-26/ design, graph, and checks
 ├── skills/ingenius-quant-finance/      cross-course parent skill
+├── skills/low-latency-quant-systems/   end-to-end trading performance skill
 ├── skills/mit-6172-performance-engineering/
 ├── skills/mit-15481x-adaptive-markets/
 ├── skills/mit-15450-analytics-of-finance/
@@ -141,6 +144,44 @@ The parent routes multi-course work by artifact rather than asking four agents t
 ```
 
 That chain runs only when each downstream stage consumes the upstream result. Independent course/source and implementation audits may run in parallel; ordinary one-course requests stay with one agent.
+
+## Cross-institution low-latency trading systems skill
+
+The [low-latency research corpus](research/low-latency-quant-systems-2026-09-26/) expands beyond MIT to 20 institutional courses or courseware collections and 11 primary implementation, protocol, or research references. It was selected around a practical target: optimize the code architecture and mathematics inside a trading system without breaking market, numerical, concurrency, timing, or recovery semantics.
+
+The research includes performance and numerical computing from ETH Zürich, UT Austin, Stanford, CMU, UC Berkeley, Cornell, Illinois, EPFL, and KIT; networking from Stanford; and trading systems or microstructure from Chicago, Oxford, Stanford, and NYU. It adds primary material from Linux, DPDK, LLVM, uops.info, Intel, AMD, Arm, Nasdaq ITCH/OUCH, and market-microstructure research. Each source has its own dated dossier with contribution, limits, and direct links.
+
+### How it works
+
+[`low-latency-quant-systems/SKILL.md`](skills/low-latency-quant-systems/SKILL.md) is the only discoverable parent. It first establishes trading correctness and a comparable measurement contract, then routes to the smallest modules that own the measured decision:
+
+| Module | Owns |
+|---|---|
+| `measurement-contract.md` | Workload, clocks, baseline, distributions, comparability, and acceptance |
+| `trading-correctness.md` | Feed, book, order, fill, replay, accounting, point-in-time, and protocol invariants |
+| `cpu-memory-compiler.md` | Generated code, cache/TLB, data layout, SIMD, compiler, and instruction evidence |
+| `numerical-kernels.md` | Algorithm, conditioning, tolerances, data movement, and CPU/GPU kernel decisions |
+| `concurrency-realtime.md` | Ownership, queues, atomics, locks, affinity, NUMA, backpressure, and jitter |
+| `networking-time.md` | NIC-to-application path, timestamps, Linux queues, busy polling, AF_XDP, and DPDK |
+| `system-architecture.md` | Critical-path budgets and CPU/GPU/FPGA or kernel/user-space placement |
+
+The core order is: preserve semantics, establish a baseline, localize the mechanism, make the smallest attributable change, rerun correctness gates, and compare end to end. A static pipeline estimate or a faster microbenchmark can explain a hypothesis; neither is accepted as proof of a faster trading path.
+
+### Why the parent/sub-skill architecture fits
+
+The “sub-skills” are conditional reference modules, not nested `SKILL.md` files. This gives activation and shared safety rules one owner while keeping unrelated material out of ordinary requests. The parent is 726 words; the parent plus one technical module is 987–1,107 words, compared with 4,660 words for every skill and reference file. Those are structural word counts, not billed-token measurements.
+
+Temporary subagents are optional. The parent keeps tightly coupled diagnosis in one agent. It assigns one bounded module contract per worker only when workstreams are genuinely independent or a downstream specialist consumes a verified upstream artifact. Graphify is used during authoring to check relationships in the evidence corpus, and ICM principles keep the runtime catalog shallow and acyclic; neither is a runtime prerequisite.
+
+The refreshed Graphify audit contains 175 nodes, 193 directed edges, and 12 named communities, with no dangling, missing, self-loop, or collapsed edges. Its cross-source links support the selected seams: network experiments with timestamp boundaries, offered load with tail latency/goodput, deterministic replay with execution realism, and fills/inventory with accounting. See the [graph report](evaluations/low-latency-quant-systems-2026-09-26/graphify-out/GRAPH_REPORT.md) and [interactive graph](evaluations/low-latency-quant-systems-2026-09-26/graphify-out/graph.html).
+
+The [design brief](evaluations/low-latency-quant-systems-2026-09-26/DESIGN_BRIEF.md), [evaluation cases](evaluations/low-latency-quant-systems-2026-09-26/cases.json), and [deterministic verifier](evaluations/low-latency-quant-systems-2026-09-26/verify_skill_tree.py) preserve the architecture decision and its tests. The source and maintenance map lives in [`source-map.md`](skills/low-latency-quant-systems/references/source-map.md) and [`architecture-and-provenance.md`](skills/low-latency-quant-systems/references/architecture-and-provenance.md).
+
+Example invocation:
+
+```text
+Use $low-latency-quant-systems to reduce p99 feed-to-book latency without changing replayed book state.
+```
 
 ## External learning-memory research
 

@@ -1,6 +1,6 @@
 ---
 name: mit-6172-performance-engineering
-description: Diagnose and verify codebase performance using MIT 6.172's measurement-first, cross-layer method. Use for concrete profiling, benchmarking, bottleneck analysis, optimization implementation, or explicit 6.172 study; not for ordinary refactoring or performance claims without a workload.
+description: Diagnose and verify non-trading codebase performance using MIT 6.172's measurement-first, cross-layer method, or support explicit 6.172 study. Use low-latency-quant-systems instead for trading-system performance unless the user explicitly requests both lenses. Not for ordinary refactoring or performance claims without a workload.
 ---
 
 # MIT 6.172 Performance Engineering
@@ -21,7 +21,7 @@ Do not optimize before there is a reproducible baseline. If no runnable target i
 4. Make the smallest change that tests that hypothesis. Preserve local conventions and maintainability unless the user explicitly accepts a tradeoff.
 5. Run the correctness oracle before comparable repeated measurements. Report negative and flat results, not only successful changes.
 
-Read [references/course-guide.md](references/course-guide.md) when selecting a cross-layer optimization, interpreting measurements, applying the method to quantitative systems, tutoring from 6.172, or checking source and historical-tooling boundaries.
+Read [references/course-guide.md](references/course-guide.md) when selecting a cross-layer optimization, interpreting measurements, tutoring from 6.172, or checking source and historical-tooling boundaries.
 
 ## Verification Invariants
 
@@ -37,5 +37,6 @@ Read [references/course-guide.md](references/course-guide.md) when selecting a c
 
 This skill does not own generic cleanup, distributed-system architecture, capacity procurement, finance modeling, or security review unless they are part of a concrete performance investigation. It may analyze code and propose or implement scoped changes, but it does not authorize production deployment or infrastructure mutation.
 
-For behavioral validation, use the positive, negative, correctness, and measurement cases in [references/course-guide.md](references/course-guide.md).
+Use `low-latency-quant-systems` instead when the performance target is a trading, market-data, execution, pricing, or risk path. Activate both only when the user explicitly requests both the MIT 6.172 lens and the trading-system contract.
 
+For behavioral validation, use the positive, negative, correctness, and measurement cases in [references/course-guide.md](references/course-guide.md).

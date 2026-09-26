@@ -1,0 +1,194 @@
+{
+  "README.md": {
+    "mtime": 1790464727.1104257,
+    "seen": 1790465293.766934,
+    "ast_hash": "bc7376c2a6664bd7a57aca73ec4cd381",
+    "semantic_hash": "bc7376c2a6664bd7a57aca73ec4cd381"
+  },
+  "courses/berkeley-cs267.md": {
+    "mtime": 1790464071.31442,
+    "seen": 1790465293.7669356,
+    "ast_hash": "498a4cebab01bdbe0ee52f96f31d0522",
+    "semantic_hash": "498a4cebab01bdbe0ee52f96f31d0522"
+  },
+  "courses/chicago-finm32700.md": {
+    "mtime": 1790464727.1474326,
+    "seen": 1790465293.766936,
+    "ast_hash": "b1845f584fafefa35695c8c0a98bcb20",
+    "semantic_hash": "b1845f584fafefa35695c8c0a98bcb20"
+  },
+  "courses/chicago-finm37602.md": {
+    "mtime": 1790464158.4495785,
+    "seen": 1790465293.7669368,
+    "ast_hash": "faf93df1fc3d75a005c65e26fac2ea9a",
+    "semantic_hash": "faf93df1fc3d75a005c65e26fac2ea9a"
+  },
+  "courses/cmu-15418.md": {
+    "mtime": 1790464071.2764204,
+    "seen": 1790465293.7669373,
+    "ast_hash": "d47ab261341ad8e39325329a2051ae40",
+    "semantic_hash": "d47ab261341ad8e39325329a2051ae40"
+  },
+  "courses/cornell-cs6120.md": {
+    "mtime": 1790464071.3864193,
+    "seen": 1790465293.7669375,
+    "ast_hash": "8ede6ffb7518d739c7c37853d4deaa3f",
+    "semantic_hash": "8ede6ffb7518d739c7c37853d4deaa3f"
+  },
+  "courses/cornell-cs6210.md": {
+    "mtime": 1790464071.3504195,
+    "seen": 1790465293.7669384,
+    "ast_hash": "f82337882fe348a3c4a69760a20d9e55",
+    "semantic_hash": "f82337882fe348a3c4a69760a20d9e55"
+  },
+  "courses/epfl-math454.md": {
+    "mtime": 1790464158.7085762,
+    "seen": 1790465293.7669435,
+    "ast_hash": "e3dc972e85db3ea90e76992291a57df0",
+    "semantic_hash": "e3dc972e85db3ea90e76992291a57df0"
+  },
+  "courses/eth-fast-numerical-code.md": {
+    "mtime": 1790464071.1274219,
+    "seen": 1790465293.7669444,
+    "ast_hash": "75adae64b5ddc55db19f7df0ec0f646b",
+    "semantic_hash": "75adae64b5ddc55db19f7df0ec0f646b"
+  },
+  "courses/illinois-cs420.md": {
+    "mtime": 1790464158.5965772,
+    "seen": 1790465293.7669451,
+    "ast_hash": "d5bb3238ad00d0fdc6a9e453d5213160",
+    "semantic_hash": "d5bb3238ad00d0fdc6a9e453d5213160"
+  },
+  "courses/illinois-cs598pa.md": {
+    "mtime": 1790464158.6705763,
+    "seen": 1790465293.7669456,
+    "ast_hash": "7171d3f0e4b6e31b7f31e3405dd31555",
+    "semantic_hash": "7171d3f0e4b6e31b7f31e3405dd31555"
+  },
+  "courses/illinois-ece408.md": {
+    "mtime": 1790464158.6335769,
+    "seen": 1790465293.7669463,
+    "ast_hash": "9ea92b5191dd98594f86c7cc431c567f",
+    "semantic_hash": "9ea92b5191dd98594f86c7cc431c567f"
+  },
+  "courses/kit-nla4hpc.md": {
+    "mtime": 1790464158.7455757,
+    "seen": 1790465293.7669466,
+    "ast_hash": "a0a3814a19dd0addbb985fbad119767a",
+    "semantic_hash": "a0a3814a19dd0addbb985fbad119767a"
+  },
+  "courses/nyu-ull-architectures.md": {
+    "mtime": 1790464158.5595775,
+    "seen": 1790465293.766947,
+    "ast_hash": "57d9780d5155286c9a4926505d6e8230",
+    "semantic_hash": "57d9780d5155286c9a4926505d6e8230"
+  },
+  "courses/oxford-market-microstructure.md": {
+    "mtime": 1790464765.852512,
+    "seen": 1790465293.7669473,
+    "ast_hash": "66cc29234df992a6ad3f2e885aaa56ae",
+    "semantic_hash": "66cc29234df992a6ad3f2e885aaa56ae"
+  },
+  "courses/stanford-cs149.md": {
+    "mtime": 1790464071.2394207,
+    "seen": 1790465293.7669475,
+    "ast_hash": "2d7571dfe2f9a01e02900a77099febc2",
+    "semantic_hash": "2d7571dfe2f9a01e02900a77099febc2"
+  },
+  "courses/stanford-cs244.md": {
+    "mtime": 1790464071.423419,
+    "seen": 1790465293.766948,
+    "ast_hash": "5686d1db8c4aed312a0ca1e9ff083d1f",
+    "semantic_hash": "5686d1db8c4aed312a0ca1e9ff083d1f"
+  },
+  "courses/stanford-cs349f.md": {
+    "mtime": 1790464158.3695793,
+    "seen": 1790465293.7669485,
+    "ast_hash": "e59dc9d0ee3b54eee24312b1eedd1191",
+    "semantic_hash": "e59dc9d0ee3b54eee24312b1eedd1191"
+  },
+  "courses/stanford-msande448.md": {
+    "mtime": 1790464727.1844397,
+    "seen": 1790465293.766949,
+    "ast_hash": "a0256fc0c5150c1aef2598ecba20432a",
+    "semantic_hash": "a0256fc0c5150c1aef2598ecba20432a"
+  },
+  "courses/ut-austin-alaff.md": {
+    "mtime": 1790464071.2024212,
+    "seen": 1790465293.7669492,
+    "ast_hash": "650b24037fcd8829f118dfb2d8587677",
+    "semantic_hash": "650b24037fcd8829f118dfb2d8587677"
+  },
+  "courses/ut-austin-laff-performance.md": {
+    "mtime": 1790464071.1654215,
+    "seen": 1790465293.7669497,
+    "ast_hash": "42cb6836d735535c6cd0ac499a628ddf",
+    "semantic_hash": "42cb6836d735535c6cd0ac499a628ddf"
+  },
+  "implementation/amd-optimization.md": {
+    "mtime": 1790464224.560981,
+    "seen": 1790465293.76695,
+    "ast_hash": "f6bf7c81c467b5dfd0e20ece55fc33d5",
+    "semantic_hash": "f6bf7c81c467b5dfd0e20ece55fc33d5"
+  },
+  "implementation/arm-simd.md": {
+    "mtime": 1790464224.5979807,
+    "seen": 1790465293.7669504,
+    "ast_hash": "05bdf2bf9d44c90dedbf2ed088318b1b",
+    "semantic_hash": "05bdf2bf9d44c90dedbf2ed088318b1b"
+  },
+  "implementation/cartea-jaimungal.md": {
+    "mtime": 1790464765.8905187,
+    "seen": 1790465293.7669506,
+    "ast_hash": "64ddd4952b83a0c3411f78474a93a0f2",
+    "semantic_hash": "64ddd4952b83a0c3411f78474a93a0f2"
+  },
+  "implementation/dpdk.md": {
+    "mtime": 1790464224.6719801,
+    "seen": 1790465293.766951,
+    "ast_hash": "f26747a07ddc7b158d3059a6568dbc1a",
+    "semantic_hash": "f26747a07ddc7b158d3059a6568dbc1a"
+  },
+  "implementation/intel-optimization.md": {
+    "mtime": 1790464224.5169814,
+    "seen": 1790465293.7669513,
+    "ast_hash": "529757380289bcd05d059476e0146cf3",
+    "semantic_hash": "529757380289bcd05d059476e0146cf3"
+  },
+  "implementation/kearns-nevmyvaka.md": {
+    "mtime": 1790464765.927525,
+    "seen": 1790465293.7669516,
+    "ast_hash": "2e905e0cf68b1f07f00269a19bd1744b",
+    "semantic_hash": "2e905e0cf68b1f07f00269a19bd1744b"
+  },
+  "implementation/linux-networking.md": {
+    "mtime": 1790464224.6349804,
+    "seen": 1790465293.7669523,
+    "ast_hash": "8b222aafb3df18d73d852ac19fb255f5",
+    "semantic_hash": "8b222aafb3df18d73d852ac19fb255f5"
+  },
+  "implementation/llvm-mca.md": {
+    "mtime": 1790464224.4729817,
+    "seen": 1790465293.7669525,
+    "ast_hash": "8a5ed02ad187aba2059a70671915f243",
+    "semantic_hash": "8a5ed02ad187aba2059a70671915f243"
+  },
+  "implementation/nasdaq-itch.md": {
+    "mtime": 1790464766.0025384,
+    "seen": 1790465293.7669528,
+    "ast_hash": "1ebb5729bd2b432ace43c5fb1fcec5bc",
+    "semantic_hash": "1ebb5729bd2b432ace43c5fb1fcec5bc"
+  },
+  "implementation/nasdaq-ouch.md": {
+    "mtime": 1790464765.9645317,
+    "seen": 1790465293.766953,
+    "ast_hash": "0afabfadfdd013a9adc413d1eea5c085",
+    "semantic_hash": "0afabfadfdd013a9adc413d1eea5c085"
+  },
+  "implementation/uops-info.md": {
+    "mtime": 1790464224.4119823,
+    "seen": 1790465293.7669532,
+    "ast_hash": "61ee3313f7ca2a6db7064a6c262b4550",
+    "semantic_hash": "61ee3313f7ca2a6db7064a6c262b4550"
+  }
+}
