@@ -12,6 +12,7 @@ ingenius/
 │   └── graphify-out/                   portable knowledge graph and report
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
+├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
 └── skills/ingenius-quant-finance/      validated installable skill
     ├── SKILL.md                        parent router and shared invariants
     ├── agents/openai.yaml              Codex interface metadata
@@ -31,6 +32,38 @@ The package has one discoverable parent `SKILL.md`. After activation, the parent
 For example, a PCA portfolio backtest routes first through empirical validation and then through portfolio/risk analysis. A question about why physical drift disappears from an option-pricing PDE loads only stochastic pricing.
 
 Modules are references, not nested skills or permanent agents. Subagents are optional runtime workers reserved for genuinely independent workstreams, such as a solver/checker pair.
+
+## How parent-to-subagent routing works
+
+The main agent activates the parent once, then the parent performs both module routing and worker routing:
+
+1. Select the smallest domain modules that own the requested decisions.
+2. Keep a short or tightly coupled request with one agent.
+3. For independent workstreams, spawn bounded workers in parallel and give each worker the exact reference it must read.
+4. For a real dependency, run the upstream worker first and pass its verified artifact to the downstream worker.
+5. The parent checks assumptions and evidence across workers, then returns one synthesis.
+
+```text
+user request
+    ↓
+parent SKILL.md
+    ├─ empirical worker ──validated estimate──> portfolio worker
+    ├─ pricing worker ─────────────────────────┐
+    └─ course/source worker ───────────────────┤
+                                               ↓
+                                      parent synthesis
+```
+
+For example, a volatility forecast used in option pricing routes first to an empirical worker. Only after that worker returns a validated forecast and information set does a pricing worker use it. By contrast, an unrelated course-source audit and derivative derivation can run at the same time. The full worker contract is in [`delegation-routing.md`](skills/ingenius-quant-finance/references/delegation-routing.md).
+
+### Experiment result
+
+The live experiment passed both core routing behaviors:
+
+- **Parallel:** a course-coverage worker received only `course-map.md`, while an independent Black–Scholes worker received only `stochastic-pricing.md`.
+- **Staged:** an empirical worker returned `CORRECTED_PCA_SPEC`; only then was the portfolio worker created and given that exact artifact.
+
+The first parallel run exposed an over-routing bug: the word “PCA” caused the coverage worker to receive the empirical module too. The parent was changed to route by the decision being made, not by keywords, and a fresh run passed. The full evidence, including limitations and the unrun single-agent control, is in the [delegation-routing experiment report](evaluations/delegation-routing-2026-09-26/REPORT.md).
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
 
@@ -74,6 +107,7 @@ It does not promise returns, manufacture security recommendations, reconstruct u
 - All parent-to-reference links resolve.
 - Independent architecture, behavioral, and packaging reviews pass.
 - Reviewed activation, routing, boundary, and native forward-test cases are tracked with their limitations.
+- Live parent-to-subagent trials passed independent parallel routing and a staged empirical-to-portfolio artifact handoff after correcting one observed over-routing defect.
 - A pinned Microsoft SkillOpt surrogate run rejected further edits at 0.9875 → 0.9875; its sealed four-case test scored hard 1.0 and soft 0.9675 with no backend or parse failures.
 
 See [the evaluation report](evaluations/skillopt-2026-09-26/REPORT.md) for the run history, council findings, method limits, architecture comparison, and sandbox candidates. The SkillOpt cases are reviewed authored surrogates, not mined production usage or native skill-discovery measurements.

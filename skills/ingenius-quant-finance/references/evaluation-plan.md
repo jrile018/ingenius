@@ -31,6 +31,7 @@ Include indirect, incomplete, near-miss, and boundary-negative phrasings in the 
 - Empirical only contrast: a PCA factor backtest that does not feed a portfolio decision.
 - Parent only: explain the skill's scope.
 - Ambiguous: “Help with my finance problem” should request the problem and desired help level rather than load all modules.
+- Goal-over-keyword precedence: “Which public lecture covers PCA?” loads course map only; the word `PCA` does not independently justify empirical research.
 
 Record required and forbidden modules. Repeated all-module loading is a routing failure even if the final answer is correct.
 
@@ -62,3 +63,16 @@ Hard failures include calling a pricing measure a physical forecast, accepting i
 ## Subagent ablation
 
 Default to one agent. For a complex proof, model comparison, or provenance audit, compare one-agent work with an independent solver/checker or source-review arrangement. Keep delegation only when it reduces serious errors or wall-clock time enough to justify token, latency, and synthesis costs. Agent agreement alone is not verification.
+
+Test the routed overlay separately:
+
+| Request shape | Expected delegation |
+|---|---|
+| One empirical diagnosis | No spawn; parent reads empirical only |
+| Independent course-coverage audit plus option derivation | Parallel workers: course map and stochastic pricing |
+| PCA/factor estimate feeding allocation | Empirical worker first; validated artifact then portfolio/risk worker |
+| Forecast volatility feeding an option model | Empirical worker first; validated artifact then stochastic-pricing worker |
+| Independent derivation and adversarial check | Parallel solver/checker workers with the same owning module but distinct result contracts |
+| Ambiguous “help with finance” request | No spawn until one material clarification resolves the route |
+
+For every spawned task, record its primary module path, allowed and forbidden modules, inputs, required return, stopping condition, and actual files read. A delegation passes only when the parent preserves dependency order, rejects speculative workers, reconciles assumptions, and produces one verified synthesis.

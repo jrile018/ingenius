@@ -1,0 +1,132 @@
+{
+  "format": "ingenius.delegation-routing.v1",
+  "parent_skill": "skills/ingenius-quant-finance/SKILL.md",
+  "delegation_contract": "skills/ingenius-quant-finance/references/delegation-routing.md",
+  "module_paths": {
+    "course-map": "skills/ingenius-quant-finance/references/course-map.md",
+    "empirical-research": "skills/ingenius-quant-finance/references/empirical-research.md",
+    "portfolio-risk": "skills/ingenius-quant-finance/references/portfolio-risk.md",
+    "stochastic-pricing": "skills/ingenius-quant-finance/references/stochastic-pricing.md",
+    "learning-projects": "skills/ingenius-quant-finance/references/learning-projects.md"
+  },
+  "dependency_edges": [
+    ["course-map", "learning-projects"],
+    ["empirical-research", "portfolio-risk"],
+    ["empirical-research", "stochastic-pricing"],
+    ["stochastic-pricing", "portfolio-risk"]
+  ],
+  "cases": [
+    {
+      "id": "independent-course-and-pricing",
+      "request": "Verify which public MIT materials cover financial PCA, and independently derive why physical drift disappears from an option-pricing PDE.",
+      "spawn": true,
+      "schedule": "parallel",
+      "workers": [
+        {
+          "primary_module": "course-map",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["empirical-research", "portfolio-risk", "stochastic-pricing", "learning-projects"],
+          "required_return": ["supported coverage claims", "source status", "unknowns"],
+          "stop_when": "The PCA coverage and public-source status are established without reconstructing unavailable material."
+        },
+        {
+          "primary_module": "stochastic-pricing",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "empirical-research", "portfolio-risk", "learning-projects"],
+          "required_return": ["measure and assumptions", "derivation", "independent check"],
+          "stop_when": "The drift cancellation is derived and verified by a second representation."
+        }
+      ],
+      "synthesis": "Keep the source audit and derivation distinct, then answer both in one parent response."
+    },
+    {
+      "id": "dependent-pca-to-portfolio",
+      "request": "Audit a rolling financial PCA factor backtest, then assess a constrained portfolio that consumes those factors.",
+      "spawn": true,
+      "schedule": "staged",
+      "workers": [
+        {
+          "primary_module": "empirical-research",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "portfolio-risk", "stochastic-pricing", "learning-projects"],
+          "required_return": ["information set", "leakage and stability findings", "validated factor artifact", "uncertainty"],
+          "stop_when": "The factor/backtest artifact is either validated for downstream use or rejected with reasons."
+        },
+        {
+          "primary_module": "portfolio-risk",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "empirical-research", "stochastic-pricing", "learning-projects"],
+          "requires_worker": 0,
+          "required_return": ["objective and feasible set", "upstream inputs used", "robustness", "residual risks"],
+          "stop_when": "Portfolio conclusions are conditioned on the validated empirical artifact and stress checks are reported."
+        }
+      ],
+      "synthesis": "Do not start portfolio conclusions before the empirical result; preserve uncertainty through the handoff."
+    },
+    {
+      "id": "dependent-volatility-to-pricing",
+      "request": "Validate a rolling volatility forecast and then use it as an input to review an option valuation.",
+      "spawn": true,
+      "schedule": "staged",
+      "workers": [
+        {
+          "primary_module": "empirical-research",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "portfolio-risk", "stochastic-pricing", "learning-projects"],
+          "required_return": ["forecast definition", "information set", "diagnostics", "validated input and uncertainty"],
+          "stop_when": "The forecast is labeled fit or unfit for the specified downstream use."
+        },
+        {
+          "primary_module": "stochastic-pricing",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "empirical-research", "portfolio-risk", "learning-projects"],
+          "requires_worker": 0,
+          "required_return": ["pricing measure and assumptions", "valuation", "independent check", "sensitivity to empirical uncertainty"],
+          "stop_when": "The valuation is verified and its dependence on the supplied forecast is explicit."
+        }
+      ],
+      "synthesis": "Keep physical conditional-volatility evidence distinct from pricing-measure valuation."
+    },
+    {
+      "id": "pricing-solver-checker",
+      "request": "Derive a one-period option price and independently attack the replication and no-arbitrage assumptions.",
+      "spawn": true,
+      "schedule": "parallel",
+      "workers": [
+        {
+          "primary_module": "stochastic-pricing",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "empirical-research", "portfolio-risk", "learning-projects"],
+          "role": "solver",
+          "required_return": ["replicating portfolio", "arbitrage-free price", "state-by-state check"],
+          "stop_when": "The payoff is replicated in every state and the price is derived."
+        },
+        {
+          "primary_module": "stochastic-pricing",
+          "additional_allowed_modules": [],
+          "forbidden_modules": ["course-map", "empirical-research", "portfolio-risk", "learning-projects"],
+          "role": "checker",
+          "required_return": ["assumption attacks", "no-arbitrage interval check", "independent valuation"],
+          "stop_when": "Every solver assumption is accepted, rejected, or left explicitly unresolved."
+        }
+      ],
+      "synthesis": "Reconcile by state-by-state and no-arbitrage checks, not agent agreement."
+    },
+    {
+      "id": "single-empirical-no-spawn",
+      "request": "Review one rolling GARCH forecast for leakage and unstable parameters.",
+      "spawn": false,
+      "schedule": "single-agent",
+      "workers": [],
+      "synthesis": "The parent reads empirical-research.md and answers directly."
+    },
+    {
+      "id": "ambiguous-no-spawn",
+      "request": "Help with my finance problem.",
+      "spawn": false,
+      "schedule": "clarify-first",
+      "workers": [],
+      "synthesis": "Ask for the problem, supplied inputs, and desired help level before selecting modules or workers."
+    }
+  ]
+}

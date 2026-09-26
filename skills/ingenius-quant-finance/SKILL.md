@@ -20,6 +20,8 @@ Load the smallest set of modules that owns distinct decisions:
 | Tutoring, assignment strategy, study sequencing, misconception diagnosis, or project design | [references/learning-projects.md](references/learning-projects.md) |
 | Auditing, extending, or restructuring this skill and its module tree | [references/architecture-and-provenance.md](references/architecture-and-provenance.md) |
 
+Route by the requested decision, not by topic keywords alone. A coverage, availability, or provenance question loads `course-map.md` even when it names PCA, options, or another domain topic; add a domain module only when the user also asks for its technical analysis.
+
 Common combinations:
 
 - Financial PCA or backtest outputs feeding allocation, exposure, or risk: empirical research, then portfolio/risk; otherwise empirical only.
@@ -28,6 +30,10 @@ Common combinations:
 - Counterparty valuation plus margin optimization: stochastic pricing, then portfolio/risk.
 
 If no route is clear, ask for the actual problem, supplied data, and desired help level. Do not load every module speculatively.
+
+## Routed Delegation
+
+Default to one agent. When two or more bounded workstreams can be solved independently, read [references/delegation-routing.md](references/delegation-routing.md) before spawning. The parent selects the smallest module set and dependency order. Each worker assignment must name its exact module path, scoped question, inputs, return contract, and forbidden modules or actions. Run independent nodes in parallel; pass verified outputs along required edges before downstream work. The parent retains shared invariants, reconciles conflicts, verifies evidence, and returns one answer. Never spawn one worker merely for every loaded module.
 
 ## Shared Workflow
 
@@ -54,6 +60,6 @@ If no route is clear, ask for the actual problem, supplied data, and desired hel
 
 This is an educational and analytical skill, not an investment recommender. Do not manufacture a security recommendation, promised return, or unsupported present-day market claim from coursework. Analysis never authorizes a trade, order, or production-state mutation; live execution requires separate invocation and explicit permission.
 
-Keep one agent for ordinary analysis and tutoring. Delegate only independent, bounded work such as a solver/checker pair, separate source audits, or independent empirical and derivation workstreams. Require an explicit synthesis rule and deterministic or source-based checks; agreement among agents is not proof. Never create one subagent merely to read each module.
+Keep one agent for ordinary analysis and tutoring. Delegate only under the routed protocol above. Agreement among agents is not proof.
 
 Use [references/evaluation-plan.md](references/evaluation-plan.md) when validating activation, routing, output behavior, or the value of delegation.

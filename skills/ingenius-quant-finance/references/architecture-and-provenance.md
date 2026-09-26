@@ -4,7 +4,7 @@ Load this file only when auditing, maintaining, or extending the skill tree.
 
 ## Selected architecture
 
-This package is one discoverable parent skill, five conditional domain modules, and two maintenance references (`architecture-and-provenance.md` and `evaluation-plan.md`). It has exactly one `SKILL.md`; none of these references is a nested skill.
+This package is one discoverable parent skill, five conditional domain modules, and three orchestration/maintenance references (`delegation-routing.md`, `architecture-and-provenance.md`, and `evaluation-plan.md`). It has exactly one `SKILL.md`; none of these references is a nested skill.
 
 Why this shape:
 
@@ -23,9 +23,12 @@ SKILL.md (activation, shared workflow, invariants)
 |-- portfolio-risk.md ----- exposure, objectives, constraints, robustness
 |-- stochastic-pricing.md - measures, replication, dynamics, valuation
 |-- learning-projects.md -- tutoring, sequencing, assignments, transfer
+|-- delegation-routing.md - conditional parent-to-worker routing overlay
 |-- architecture-and-provenance.md - maintenance-only structure audit
 `-- evaluation-plan.md ---- validation-only test contract
 ```
+
+`delegation-routing.md` is a runtime overlay reached only when the parent has already selected modules and justified subagents. It maps each bounded worker to an exact module contract, keeps independent nodes parallel, stages real dependency edges, and returns synthesis ownership to the parent.
 
 Material cross-links:
 
@@ -35,6 +38,17 @@ Material cross-links:
 - Stochastic pricing → portfolio/risk when valuation exposures feed margin, counterparty, or hedge optimization.
 
 These links are directional routing dependencies, not instructions to load both modules every time.
+
+## Parent-to-worker overlay
+
+```text
+parent selects modules and retains synthesis
+|-- independent route A ------> worker A reads exact module A --|
+|-- independent route B ------> worker B reads exact module B --|--> parent verifies and synthesizes
+`-- upstream module worker --> validated artifact --> downstream module worker --'
+```
+
+The overlay does not create one permanent agent per topic. A worker exists only for a bounded workstream with a result contract and stopping condition. A dependency is staged rather than parallelized; a tightly coupled argument stays with one agent even when it reads two modules.
 
 ## Graphify result
 
@@ -50,6 +64,8 @@ The material edges that influenced the design were:
 
 Graph community labels were treated as evidence, not copied mechanically into modules. The graph's generic token-reduction benchmark could not match its sample questions to this domain and remains unvalidated.
 
+A routing-focused Graphify query found related bridges between PCA and portfolio management, volatility and risk-neutral valuation, and the 2024 course and the updated study path. Those paths were undirected and partly similarity-inferred, so they were not treated as execution dependencies. Runtime arrows were defined only where a downstream decision consumes an upstream artifact. This keeps Graphify as construction evidence rather than allowing semantic proximity to spawn workers.
+
 ## ICM review
 
 The package uses the ICM knowledge-bundle pattern within Codex skill constraints:
@@ -57,8 +73,9 @@ The package uses the ICM knowledge-bundle pattern within Codex skill constraints
 - `SKILL.md` is the small catalog.
 - `references/` is the stable knowledge shelf.
 - Each domain module has one job, explicit load/do-not-load conditions, inputs, and an output invariant. Maintenance references are routed by their audit or validation purpose instead.
+- The delegation reference is a conditional orchestration shelf: it names exact worker inputs/outputs and leaves domain knowledge in the owning modules.
 - Shared activation, safety, and interpretation rules are canonical in the parent. Domain modules contain only the operational checks needed to apply those rules to a task.
-- The cold walk reaches any operational module from the parent in one additional read.
+- The normal cold walk reaches any operational module from the parent in one additional read. A delegated walk uses at most two: the delegation contract, then the assigned module.
 
 The source snapshot, Graphify artifacts, earlier baseline, and final skill are separated at the repository level so evidence, analysis, comparison, and product do not blur together.
 

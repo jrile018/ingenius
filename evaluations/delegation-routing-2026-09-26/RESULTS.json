@@ -1,0 +1,104 @@
+{
+  "format": "ingenius.delegation-routing-results.v1",
+  "date": "2026-09-26",
+  "overall": "pass_with_limitations",
+  "architecture": {
+    "discoverable_parent_skills": 1,
+    "routable_domain_modules": 5,
+    "dependency_edges": 4,
+    "dependency_graph_acyclic": true,
+    "parent_retains_synthesis": true,
+    "parent_word_count": 716,
+    "delegated_cold_walk_reads": 2
+  },
+  "runs": [
+    {
+      "id": "parallel-before-correction",
+      "case": "independent-course-and-pricing",
+      "schedule_observed": "parallel",
+      "result": "diagnostic_failure",
+      "workers": [
+        {
+          "role": "course coverage",
+          "assigned_modules": ["course-map", "empirical-research"],
+          "expected_modules": ["course-map"]
+        },
+        {
+          "role": "pricing derivation",
+          "assigned_modules": ["stochastic-pricing"],
+          "expected_modules": ["stochastic-pricing"]
+        }
+      ],
+      "finding": "The coordinator routed the coverage worker partly by the PCA keyword and over-assigned empirical-research.md.",
+      "correction": "Added an explicit decision-over-keyword rule to the parent and delegation contract."
+    },
+    {
+      "id": "parallel-after-correction",
+      "case": "independent-course-and-pricing",
+      "schedule_observed": "parallel",
+      "result": "pass",
+      "workers": [
+        {
+          "role": "course coverage",
+          "assigned_modules": ["course-map"],
+          "actual_modules": ["course-map"]
+        },
+        {
+          "role": "pricing derivation",
+          "assigned_modules": ["stochastic-pricing"],
+          "actual_modules": ["stochastic-pricing"]
+        }
+      ],
+      "artifact_handoff": false,
+      "synthesizer": "parent coordinator",
+      "finding": "Independent decisions were separated, executed concurrently, kept within worker module boundaries, and reconciled by the parent."
+    },
+    {
+      "id": "staged-pca-to-portfolio",
+      "case": "dependent-pca-to-portfolio",
+      "schedule_observed": "staged",
+      "result": "pass",
+      "workers": [
+        {
+          "order": 1,
+          "role": "PCA design",
+          "assigned_modules": ["empirical-research"],
+          "actual_modules": ["empirical-research"],
+          "returned_artifact": "CORRECTED_PCA_SPEC"
+        },
+        {
+          "order": 2,
+          "role": "portfolio assessment",
+          "assigned_modules": ["portfolio-risk"],
+          "actual_modules": ["portfolio-risk"],
+          "consumed_artifact": "CORRECTED_PCA_SPEC"
+        }
+      ],
+      "synthesizer": "parent coordinator",
+      "finding": "The downstream worker did not exist until the upstream artifact had completed, and it confirmed receiving that artifact verbatim."
+    },
+    {
+      "id": "single-module-control",
+      "case": "single-empirical-no-spawn",
+      "result": "not_run",
+      "reason": "The collaboration thread limit was reached after the diagnostic, corrected parallel, and staged trials. The case remains statically specified and structurally validated but is not claimed as live evidence."
+    }
+  ],
+  "structural_validation": {
+    "result": "pass",
+    "one_skill_md": true,
+    "all_parent_links_resolve": true,
+    "all_references_reachable": true,
+    "dependency_graph_acyclic": true,
+    "parent_word_budget_le_750": true,
+    "codex_quick_validate": true,
+    "git_diff_check": true
+  },
+  "limitations": [
+    "These are small, single-run behavioral trials rather than production-frequency measurements.",
+    "Exact model-token or billing usage was not exposed, so no token-savings claim is made.",
+    "Workers read the governing parent SKILL.md in addition to their assigned module because skill-use instructions require it.",
+    "The single-module no-spawn case was not executed live because the collaboration thread limit was reached.",
+    "A separate post-edit council turn could not start for the same thread-limit reason; the fresh coordinators and their specialist workers provide behavioral evidence, while deterministic validators provide the final file-level check."
+  ]
+}
