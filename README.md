@@ -2,7 +2,7 @@
 
 `ingenius` turns advanced university coursework and primary technical sources into source-grounded, testable Codex skills for quantitative research, trading, data platforms, performance, optimization, and investment-firm systems.
 
-The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW material and advanced empirical electives. [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) combines cross-institution courses with primary systems sources. Four newer sibling skills own market microstructure/execution, robust optimization, reliable quantitative data systems, and investment-firm operating architecture. These are independent engineering and learning tools, not institutional products, legal opinions, or investment-recommendation systems.
+The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW material and advanced empirical electives. [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) combines cross-institution courses with primary systems sources. Six newer sibling skills own advanced portfolio theory, rigorous mathematical finance, market microstructure/execution, robust optimization, reliable quantitative data systems, and investment-firm operating architecture. These are independent engineering and learning tools, not institutional products, legal opinions, or investment-recommendation systems.
 
 ## When to use this architecture
 
@@ -34,13 +34,17 @@ ingenius/
 │   └── courses/                         four course-specific deep-research briefs
 │   └── low-latency-quant-systems-2026-09-26/  20 courses + 11 primary references
 │   └── advanced-electives-2026-09-26/   five advanced capability dossiers
+│   └── portfolio-mathematical-finance-2026-09-26/  advanced course synthesis
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 ├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
 ├── evaluations/low-latency-quant-systems-2026-09-26/ design, graph, and checks
 ├── evaluations/advanced-elective-skills-2026-09-26/ architecture and checks
+├── evaluations/portfolio-mathematical-finance-skills-2026-09-26/ routing checks
 ├── skills/ingenius-quant-finance/      cross-course parent skill
 ├── skills/low-latency-quant-systems/   end-to-end trading performance skill
+├── skills/advanced-portfolio-theory/   advanced allocation decisions
+├── skills/rigorous-mathematical-finance/ proof-level finance derivations
 ├── skills/market-microstructure-execution/
 ├── skills/robust-quant-optimization/
 ├── skills/reliable-quant-data-systems/
@@ -169,6 +173,32 @@ measured execution bottleneck → low-latency systems investigation
 ```
 
 The [design brief and 16 authored cases](evaluations/advanced-elective-skills-2026-09-26/) document activation, negative boundaries, safety behavior, and acyclic handoffs. Graphify detected six Markdown research documents and 1,433 words and reported that the corpus fits one context window, so it did not need a graph. With no Gemini key or semantic-extraction agents used, the handoff map is explicitly a manually derived ICM architecture map, not a claimed semantic graph. ICM's cold walk confirmed that direct requests select one sibling and one or two modules, while ambiguous terms such as “optimize execution” route by the requested output rather than by keywords.
+
+## Advanced portfolio theory and mathematical finance
+
+The [advanced portfolio and mathematical-finance research set](research/portfolio-mathematical-finance-2026-09-26/) adds a deeper graduate/elective spine from MIT, ETH Zürich, NYU, Chicago, Columbia, and Oxford. It produces two sibling skills because their success criteria differ:
+
+| Skill | Use it when the requested output is | Representative coverage |
+|---|---|---|
+| [`advanced-portfolio-theory`](skills/advanced-portfolio-theory/) | A defensible allocation or policy under uncertain estimates, constraints, costs, and multiple periods | Mean-variance extensions, utility/equilibrium, factors, Bayesian and Black–Litterman construction, shrinkage, robustness, risk budgeting, dynamic allocation, and out-of-sample validation |
+| [`rigorous-mathematical-finance`](skills/rigorous-mathematical-finance/) | A proof or derivation with explicit stochastic objects and theorem conditions | Filtered probability, martingales and stopping, FTAP, semimartingales, Itō/Girsanov, numeraires, replication/PDE, stochastic control, optimal stopping, duality, and incomplete markets |
+
+Routine portfolio arithmetic, VaR/ES, and Black–Scholes calculations remain with `ingenius-quant-finance`. Generic solver formulation and certification remain with `robust-quant-optimization`. Explicit MIT 15.450 or MIT 18.642 study stays with those course skills. This avoids making “advanced” synonymous with loading every mathematical module.
+
+The main handoffs are typed and directional:
+
+```text
+point-in-time estimate + uncertainty
+    → advanced portfolio construction
+
+verified state dynamics + value equation + conditions + candidate control
+    → implementable dynamic-allocation assessment
+
+portfolio objective + variables + constraints + units + uncertainty model
+    → robust solver formulation and certification
+```
+
+Graphify inspected the three-document research corpus, counted about 1,555 words, and returned `needs_graph: false`; under its small-corpus rule, no semantic graph was fabricated. ICM's cold walk kept one discoverable parent per outcome, four conditionally loaded reference modules per skill, and an acyclic route map. The [design brief, 16 authored cases, and deterministic verifier](evaluations/portfolio-mathematical-finance-skills-2026-09-26/) check direct, indirect, negative, handoff, and safety boundaries. These checks validate structure and authored routing expectations, not investment performance or live model activation rates.
 
 ## Four course deep dives and skills
 

@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-26",
+  "skills": 2,
+  "conditional_modules": 8,
+  "authored_cases": 16,
+  "positive_cases": 12,
+  "negative_cases": 4,
+  "skill_validation": "pass",
+  "deterministic_verifier": "pass",
+  "json_validation": "pass",
+  "local_markdown_links": "pass",
+  "git_diff_check": "pass",
+  "handoff_graph": "acyclic",
+  "nested_skills": 0,
+  "graphify_detection": {
+    "documents": 3,
+    "approximate_words": 1555,
+    "needs_graph": false
+  },
+  "structural_word_counts": {
+    "advanced_portfolio_parent": 530,
+    "advanced_portfolio_parent_plus_one_module_min": 805,
+    "advanced_portfolio_parent_plus_one_module_max": 862,
+    "advanced_portfolio_all_skill_markdown": 1723,
+    "rigorous_math_finance_parent": 527,
+    "rigorous_math_finance_parent_plus_one_module_min": 779,
+    "rigorous_math_finance_parent_plus_one_module_max": 826,
+    "rigorous_math_finance_all_skill_markdown": 1631,
+    "both_skills_all_markdown": 3354
+  },
+  "limitations": [
+    "Authored routing cases are not a live implicit-activation benchmark.",
+    "Word counts are structural context proxies, not billed model-token measurements.",
+    "The evaluation does not establish investment performance or theorem correctness for future answers."
+  ]
+}

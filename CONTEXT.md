@@ -7,6 +7,7 @@ One job: preserve attributable quantitative-finance, trading, systems, and opera
 - `source-material/mit-ocw-research/` — exact files recovered from Git commit `4cd5ee0`, plus their Graphify sidecar.
 - `research/low-latency-quant-systems-2026-09-26/` — dated cross-institution course, implementation, protocol, and research dossiers.
 - `research/advanced-electives-2026-09-26/` — advanced empirical, microstructure, optimization, data-systems, and investment-firm course dossiers.
+- `research/portfolio-mathematical-finance-2026-09-26/` — advanced portfolio and proof-level mathematical-finance course synthesis.
 - `research-baseline/quant-finance-coursework/` — the earlier test skill, retained only for regression comparison.
 - `skills/ingenius-quant-finance/` — cross-course quantitative-finance parent skill.
 - `skills/low-latency-quant-systems/` — end-to-end trading-system performance parent skill.
@@ -14,8 +15,11 @@ One job: preserve attributable quantitative-finance, trading, systems, and opera
 - `skills/robust-quant-optimization/` — formulation, solver verification, and uncertainty-aware optimization skill.
 - `skills/reliable-quant-data-systems/` — temporal lineage, transactional correctness, distribution, and recovery skill.
 - `skills/investment-firm-systems/` — fund operating-model, controls, and resilience skill.
+- `skills/advanced-portfolio-theory/` — estimation-aware static and dynamic portfolio construction skill.
+- `skills/rigorous-mathematical-finance/` — proof-level stochastic pricing, no-arbitrage, control, and incomplete-market skill.
 - `evaluations/low-latency-quant-systems-2026-09-26/` — its design brief, graph, cases, verifier, and report.
 - `evaluations/advanced-elective-skills-2026-09-26/` — sibling-skill design, ICM cold walk, authored cases, and deterministic verifier.
+- `evaluations/portfolio-mathematical-finance-skills-2026-09-26/` — advanced portfolio/math-finance design, cold walk, cases, and verifier.
 
 ## Maintenance flow
 
