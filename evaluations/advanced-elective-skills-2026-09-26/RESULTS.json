@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-26",
+  "status": "pass",
+  "skills_created": 4,
+  "conditional_modules": 12,
+  "authored_cases": 16,
+  "structural_verifier": "pass",
+  "quick_validate_passes": 4,
+  "local_markdown_links": "pass",
+  "git_diff_check": "pass",
+  "installed_symlinks": 4,
+  "research_documents_detected": 6,
+  "research_words_detected": 1433,
+  "graphify_needs_graph": false,
+  "graphify_semantic_graph": "not_run_no_gemini_or_authorized_extractors",
+  "live_activation_evaluation": "not_run",
+  "package_word_counts": {
+    "market-microstructure-execution": 1023,
+    "robust-quant-optimization": 917,
+    "reliable-quant-data-systems": 880,
+    "investment-firm-systems": 943
+  }
+}

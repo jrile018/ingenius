@@ -1,8 +1,8 @@
 # Ingenius Quant Finance
 
-`ingenius` turns researched quantitative-finance and performance-engineering sources into source-grounded, testable Codex skills.
+`ingenius` turns advanced university coursework and primary technical sources into source-grounded, testable Codex skills for quantitative research, trading, data platforms, performance, optimization, and investment-firm systems.
 
-The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW 18.S096 and 18.642 material. The newer [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) skill combines public courses from multiple institutions with primary processor, compiler, Linux, DPDK, exchange-protocol, and market-microstructure sources. These are independent engineering and learning tools, not institutional products or investment-recommendation systems.
+The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW material and advanced empirical electives. [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) combines cross-institution courses with primary systems sources. Four newer sibling skills own market microstructure/execution, robust optimization, reliable quantitative data systems, and investment-firm operating architecture. These are independent engineering and learning tools, not institutional products, legal opinions, or investment-recommendation systems.
 
 ## When to use this architecture
 
@@ -33,12 +33,18 @@ ingenius/
 ├── research/                            source-selection and architecture reports
 │   └── courses/                         four course-specific deep-research briefs
 │   └── low-latency-quant-systems-2026-09-26/  20 courses + 11 primary references
+│   └── advanced-electives-2026-09-26/   five advanced capability dossiers
 ├── research-baseline/                  earlier test skill for comparison
 ├── evaluations/skillopt-2026-09-26/    SkillOpt, council, token, and sandbox evidence
 ├── evaluations/delegation-routing-2026-09-26/ live routing experiment and verifier
 ├── evaluations/low-latency-quant-systems-2026-09-26/ design, graph, and checks
+├── evaluations/advanced-elective-skills-2026-09-26/ architecture and checks
 ├── skills/ingenius-quant-finance/      cross-course parent skill
 ├── skills/low-latency-quant-systems/   end-to-end trading performance skill
+├── skills/market-microstructure-execution/
+├── skills/robust-quant-optimization/
+├── skills/reliable-quant-data-systems/
+├── skills/investment-firm-systems/
 ├── skills/mit-6172-performance-engineering/
 ├── skills/mit-15481x-adaptive-markets/
 ├── skills/mit-15450-analytics-of-finance/
@@ -142,6 +148,28 @@ The roadmap is not a claim that MIT OCW alone teaches how to operate a hedge fun
 
 The parent is deliberately not a general statistics or mathematics skill. Overlapping prerequisites activate it only when they are applied to quantitative finance or when the user explicitly asks about the curated MIT corpus. Analysis never authorizes trade execution or production-state mutation.
 
+## Advanced elective expansion
+
+The [advanced-elective research set](research/advanced-electives-2026-09-26/) adds graduate or upper-level material from MIT, Stanford, Oxford, Chicago, NYU, and CMU. Courses were selected for capabilities the user repeatedly needs, not for completeness or prestige.
+
+| Skill or extension | Representative advanced courses | What it owns |
+|---|---|---|
+| Existing `ingenius-quant-finance` empirical module | MIT 14.384, MIT 14.387, Stanford MS&E 448 | Persistent time series, structural breaks, causal-design boundaries, and realistic market-data validation |
+| [`market-microstructure-execution`](skills/market-microstructure-execution/) | Oxford Market Microstructure, Chicago FINM 37601/37602, Stanford MS&E 448, NYU MATH-GA 2763 | Order-book mechanics, transaction costs, impact, execution schedules, fills, and market making |
+| [`robust-quant-optimization`](skills/robust-quant-optimization/) | Stanford EE364A/B, MIT 15.093J | Formulation, convexity, duality/KKT, solver verification, sensitivity, and robust/stochastic decisions |
+| [`reliable-quant-data-systems`](skills/reliable-quant-data-systems/) | MIT 6.5840, CMU 15-445/645 and 15-721, Stanford CS244B | Point-in-time lineage, schemas, transactions, idempotency, replication, consistency, and recovery |
+| [`investment-firm-systems`](skills/investment-firm-systems/) | NYU Operating Hedge Funds, NYU FRE-GY 7841, MIT 15.S08 and 15.997 | Front/middle/back-office mapping, service providers, trade lifecycle, reconciliation, controls, and resilience |
+
+These are sibling skills because each can be requested independently and returns a different artifact. Inside each skill, the parent `SKILL.md` routes to small reference modules—the sub-skill architecture—without creating nested discoverable skills. Cross-skill work is staged only through a concrete artifact:
+
+```text
+point-in-time data → empirical estimate → robust decision → execution policy
+reconciled positions/cash → operating control and exception evidence
+measured execution bottleneck → low-latency systems investigation
+```
+
+The [design brief and 16 authored cases](evaluations/advanced-elective-skills-2026-09-26/) document activation, negative boundaries, safety behavior, and acyclic handoffs. Graphify detected six Markdown research documents and 1,433 words and reported that the corpus fits one context window, so it did not need a graph. With no Gemini key or semantic-extraction agents used, the handoff map is explicitly a manually derived ICM architecture map, not a claimed semantic graph. ICM's cold walk confirmed that direct requests select one sibling and one or two modules, while ambiguous terms such as “optimize execution” route by the requested output rather than by keywords.
+
 ## Four course deep dives and skills
 
 Four high-value courses now have separate source-backed research briefs and separately installable skills:
@@ -240,16 +268,20 @@ The graph contains 52 nodes, 67 edges, and six communities. See the [graph repor
 
 ## Install and invoke
 
-Install by linking or copying `skills/ingenius-quant-finance` into your Codex skills directory. In this workspace it is linked at:
+Install a skill by linking or copying its directory into your Codex skills directory. The skills built here are intended to be linked at:
 
 ```text
-~/.agents/skills/ingenius-quant-finance
+~/.agents/skills/<skill-name>
 ```
 
 Example invocation:
 
 ```text
 Use $ingenius-quant-finance to audit my rolling PCA backtest and the portfolio constraints built on top of it.
+Use $market-microstructure-execution to compare an impact-aware schedule with capped participation.
+Use $robust-quant-optimization to verify this constrained optimizer and stress its estimated inputs.
+Use $reliable-quant-data-systems to design point-in-time market-data lineage and crash recovery.
+Use $investment-firm-systems to map this trade lifecycle, reconciliations, owners, and failure controls.
 ```
 
 ## Boundaries
@@ -268,6 +300,7 @@ It does not promise returns, manufacture security recommendations, reconstruct u
 - Reviewed activation, routing, boundary, and native forward-test cases are tracked with their limitations.
 - Live parent-to-subagent trials passed independent parallel routing and a staged empirical-to-portfolio artifact handoff after correcting one observed over-routing defect.
 - A pinned Microsoft SkillOpt surrogate run rejected further edits at 0.9875 → 0.9875; its sealed four-case test scored hard 1.0 and soft 0.9675 with no backend or parse failures.
+- The advanced-elective verifier passes four sibling skills, 12 conditional modules, 16 authored routing/boundary cases, source dossiers, and acyclic typed handoffs; live model-behavior tests remain separate from these structural checks.
 
 See [the evaluation report](evaluations/skillopt-2026-09-26/REPORT.md) for the run history, council findings, method limits, architecture comparison, and sandbox candidates. The SkillOpt cases are reviewed authored surrogates, not mined production usage or native skill-discovery measurements.
 

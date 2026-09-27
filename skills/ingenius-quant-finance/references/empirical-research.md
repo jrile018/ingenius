@@ -39,3 +39,13 @@ Use train/validation/test separation that respects time, compare with simple mod
 ## Verification
 
 Use rolling or expanding windows, naive baselines, residual plots/tests, parameter perturbations, reproducible transformations, and held-out periods. For backtests, reconstruct the contemporaneous asset universe and information set before interpreting performance.
+
+## Advanced elective extensions
+
+Use these sources to deepen a decision already owned by this module; they do not create new automatic activation routes.
+
+- [MIT 14.384 Time Series Analysis](https://ocw.mit.edu/courses/14-384-time-series-analysis-fall-2013/) strengthens persistent/non-stationary process, VAR, frequency-domain, and structural-break analysis. For finance use, translate the method but do not transfer macroeconomic application conclusions.
+- [MIT 14.387 Applied Econometrics: Mostly Harmless Big Data](https://ocw.mit.edu/courses/14-387-applied-econometrics-mostly-harmless-big-data-fall-2014/) strengthens matching, IV, differences-in-differences, regression discontinuity, dependence-valid standard errors, and high-dimensional analysis. Require an explicit identification argument before using causal language.
+- [Stanford MS&E 448 Big Financial Data for Algorithmic Trading](https://web.stanford.edu/class/msande448/info.html) reinforces raw quote/order/trade data work, model plausibility, and realistic project evaluation. Its public page is historically dated and some teaching material is access-restricted.
+
+When the requested output is an execution policy rather than an empirical test, hand off the estimated signal, uncertainty, timestamps, and evaluation result to `market-microstructure-execution`. When the requested output is an optimization formulation, hand off calibrated inputs and uncertainty to `robust-quant-optimization`.

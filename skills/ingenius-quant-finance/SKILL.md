@@ -1,6 +1,6 @@
 ---
 name: ingenius-quant-finance
-description: Analyze, verify, and teach quantitative finance with a curated MIT OCW 18.S096 (2013) and 18.642 (2024) corpus. Use for financial applications of empirical methods, portfolio/risk, stochastic pricing, derivatives, rates, or credit, and for explicit questions about the corpus. Exclude generic statistics or mathematics, unrelated corporate finance, live security recommendations, unsupported current-market claims, trade execution, and production-state mutation.
+description: Analyze, verify, and teach quantitative finance with a curated MIT OCW corpus and advanced empirical-research electives. Use for financial applications of empirical methods, portfolio/risk, stochastic pricing, derivatives, rates, or credit, and for explicit questions about the corpus. Exclude generic statistics or mathematics, unrelated corporate finance, live security recommendations, unsupported current-market claims, trade execution, and production-state mutation.
 ---
 
 # Ingenius Quant Finance
@@ -32,6 +32,8 @@ Common combinations:
 - Counterparty valuation plus margin optimization: stochastic pricing, then portfolio/risk.
 - Adaptive-market mechanism or high-level falsifiable test design: 15.481x only. Add 15.450 only when the user requests an execution-ready econometric specification, dependence-valid inference, estimation, or implementation.
 - Validated quantitative method that is actually performance-bound in code: finance specialist first, then 6.172 for measured implementation work.
+
+Adjacent sibling skills own independently requested artifacts: use `market-microstructure-execution` for order-book mechanics, impact, transaction-cost analysis, execution schedules, or market making; `robust-quant-optimization` for formulation, duality, solver certificates, and uncertainty sets; `reliable-quant-data-systems` for temporal lineage, transaction, replication, and recovery design; and `investment-firm-systems` for operating-model and control architecture. Invoke more than one only when a downstream artifact consumes the verified output of another.
 
 If no route is clear, ask for the actual problem, supplied data, and desired help level. Do not load every module speculatively.
 

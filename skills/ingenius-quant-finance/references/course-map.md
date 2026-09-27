@@ -17,6 +17,14 @@ The skill derives from the `jrile018/ingenius` research snapshot at commit [`4cd
 
 Use the snapshot as a research guide, not a substitute for the MIT materials. The snapshot is MIT-licensed by its author; linked OCW material retains its own terms.
 
+The empirical module also uses a dated advanced-elective extension researched on 2026-09-26:
+
+- [MIT OCW 14.384, Fall 2013](https://ocw.mit.edu/courses/14-384-time-series-analysis-fall-2013/)
+- [MIT OCW 14.387, Fall 2014](https://ocw.mit.edu/courses/14-387-applied-econometrics-mostly-harmless-big-data-fall-2014/)
+- [Stanford MS&E 448](https://web.stanford.edu/class/msande448/info.html)
+
+These sources extend methods and validation; they do not change the two-course provenance of the original snapshot or imply institutional endorsement.
+
 ## Prerequisites and dependency spine
 
 Expected foundations are multivariable calculus, differential equations, probability and statistics, and linear algebra. Working readiness means manipulating matrices, interpreting eigenvectors, integrating densities, computing conditional expectations, solving elementary differential equations, and reading regression output.
