@@ -4,6 +4,26 @@
 
 The original [`skills/ingenius-quant-finance`](skills/ingenius-quant-finance/) skill draws on public MIT OCW 18.S096 and 18.642 material. The newer [`skills/low-latency-quant-systems`](skills/low-latency-quant-systems/) skill combines public courses from multiple institutions with primary processor, compiler, Linux, DPDK, exchange-protocol, and market-microstructure sources. These are independent engineering and learning tools, not institutional products or investment-recommendation systems.
 
+## When to use this architecture
+
+**Use a routed parent skill when several tightly connected components form one workflow—not merely because a project contains multiple repositories.** The components may live in one repository or many. What matters is that they share invariants, regularly compose, or pass verified outputs from one stage to another.
+
+```text
+point-in-time market data
+    → quantitative research
+        → portfolio and risk
+            → backtest or paper execution
+                → accounting and monitoring
+```
+
+This architecture fits when one user goal crosses several of those stages, the parent must enforce common rules, and the final answer needs one coordinated synthesis. The parent selects the smallest relevant reference modules; it creates subagents only for independent workstreams or a real artifact handoff.
+
+Use separate sibling skills instead when capabilities have independently requested goals, clean activation boundaries, different permissions or lifecycles, and mostly narrow requests. In short:
+
+> Use a parent when the parts form one workflow. Use sibling skills when the parts merely coexist.
+
+The current experiment supports this as a workload-dependent decision, not a universal superiority claim. For its modeled cases, the routed design used fewer static context tokens when cross-domain requests exceeded roughly 44%; matched sibling skills were cheaper below that point. The threshold is specific to those files, routes, and request weights.
+
 ## Repository layout
 
 ```text
